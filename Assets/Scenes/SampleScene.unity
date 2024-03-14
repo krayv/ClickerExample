@@ -152,8 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9090d1dbd7b2541a78416839bdd48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cookiesView: {fileID: 3157589318827790638, guid: 9ff6a701faada8f44b44486fbfe09954, type: 3}
   _origin: {fileID: 1252499796}
+  _viewsPrefabs:
+  - {fileID: 3157589318827790638, guid: 9ff6a701faada8f44b44486fbfe09954, type: 3}
+  - {fileID: 5581248696370906969, guid: 23dc91a41252eed4d9376f0432552458, type: 3}
 --- !u!4 &28845574
 Transform:
   m_ObjectHideFlags: 0
@@ -247,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0dc12355be1394fa540d8f6d5b85e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookieView: {fileID: 3157589318827790638, guid: 9ff6a701faada8f44b44486fbfe09954, type: 3}
+  _uiController: {fileID: 28845573}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +419,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

@@ -2,23 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using System.Linq;
 
 public class UIController : MonoBehaviour
 {
     private IViewFactory _viewFactory;
 
-
-    [SerializeField] private View _cookiesView;
     [SerializeField] private Transform _origin;
+
+    [SerializeField] private List<View> _viewsPrefabs = new List<View>();
+    private List<View> _instantiatedViews = new List<View>();
 
     [Inject]
     private void Construct(IViewFactory factory)
     {
         _viewFactory = factory;
+
     }
 
     public void Start()
     {
-        _viewFactory.CreateViewFromPrefab(_cookiesView, _origin);
+        OpenView<CookiesView>();
+    }
+
+    public void OpenView<TView>() where TView : View
+    {
+        View view = _instantiatedViews.Find(v => v is TView);
+        if (view == null)
+        {
+            View viewPrefab = _viewsPrefabs.Find(v => v is TView);
+            view = _viewFactory.CreateViewFromPrefab(viewPrefab, _origin);
+        }
+        view.OpenView();
     }
 }

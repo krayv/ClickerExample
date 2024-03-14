@@ -1,10 +1,10 @@
 using UniRx;
 using System.Numerics;
-using UnityEngine;
-
+using System.Collections.Generic;
 public class CookiesModel
 {
     public ReactiveProperty<BigInteger> Cookies { get; private set; }
+    
 
     private readonly CompositeDisposable _disposable = new();
 
@@ -12,9 +12,8 @@ public class CookiesModel
     {
         Cookies = new ReactiveProperty<BigInteger>();
         Cookies.Value = new BigInteger(0);
-        Cookies.Subscribe(ValidateCookies).AddTo(_disposable);
+        Cookies.Subscribe(ValidateCookies).AddTo(_disposable);       
     }
-
 
     private void ValidateCookies(BigInteger value)
     {
@@ -22,5 +21,5 @@ public class CookiesModel
         {
             Cookies.Value = 0;
         }
-    }
+    }  
 }
