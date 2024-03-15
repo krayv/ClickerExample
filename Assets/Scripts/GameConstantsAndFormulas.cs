@@ -3,6 +3,7 @@ using System;
 public static class GameConstantsAndFormulas 
 {
     public const float INCREASE_PRICE_PER_BUILDING = 0.03f;
+    public const float SELL_BUILDING_PRICE_MODIFIER = 0.75f;
 
     public static BigInteger CalculateBuildingPrice(int buildingCount, long basePrice)
     {

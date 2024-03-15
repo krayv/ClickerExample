@@ -36,6 +36,7 @@ public class BuildingUIItem : UIItem
             _buildingsViewModel.Buildings.ObserveReplace().Where(_ => _.Key == _building).Subscribe(OnBuildingCountChanged).AddTo(_disposable);
             _buildingsViewModel.BuildingPrices.ObserveReplace().Where(_ => _.Key == _building).Subscribe(OnBuildingPriceChanged).AddTo(_disposable);
             _buildingsViewModel.AwaibleBuildingsForBuying.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateBuyButton).AddTo(_disposable);
+            _buildingsViewModel.AwaibleBuildingsForSelling.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateSellButton).AddTo(_disposable);
 
             _buyButton.OnClickAsObservable().Subscribe(_ => _buildingsViewModel.BuyBuilding(_building)).AddTo(_disposable);
             _sellButton.OnClickAsObservable().Subscribe(_ => _buildingsViewModel.SellBuilding(_building)).AddTo(_disposable);
@@ -43,6 +44,7 @@ public class BuildingUIItem : UIItem
             SetCount(_buildingsViewModel.Buildings[building]);
             SetPrice(_buildingsViewModel.BuildingPrices[building]);
             SetBuyButton(_buildingsViewModel.AwaibleBuildingsForBuying[building]);
+            SetSellButton(_buildingsViewModel.AwaibleBuildingsForSelling[building]);
         }
     }
 
@@ -60,6 +62,11 @@ public class BuildingUIItem : UIItem
         SetBuyButton(awaibleBuilding.NewValue);
     }
 
+    private void UpdateSellButton(DictionaryReplaceEvent<Building, bool> awaibleBuilding)
+    {
+        SetSellButton(awaibleBuilding.NewValue);
+    }
+
     private void SetCount(int count)
     {
         _itemCurrentCountText.text = count.ToString();
@@ -73,5 +80,10 @@ public class BuildingUIItem : UIItem
     private void SetBuyButton(bool interactable)
     {
         _buyButton.interactable = interactable;
+    }
+
+    private void SetSellButton(bool inreractable)
+    {
+        _sellButton.interactable = inreractable;
     }
 }
