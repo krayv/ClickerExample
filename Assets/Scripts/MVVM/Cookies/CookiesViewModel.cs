@@ -27,9 +27,9 @@ public class CookiesViewModel
         _cookiesModel.Cookies.Value++;
     }
 
-    public void OpenBuildingsView()
+    public void SwitchBuildingsView()
     {
-        _uiController.OpenView<BuildingsView>();
+        _uiController.SwitchView<BuildingsView>();
     }
 
     public void ProduceCookies(float timeFactor)

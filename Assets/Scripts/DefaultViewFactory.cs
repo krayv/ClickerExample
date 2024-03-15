@@ -6,7 +6,8 @@ public class DefaultViewFactory : Factory, IViewFactory
 {
     public View CreateViewFromPrefab(View view, Transform origin)
     {
-        diContainer.InstantiatePrefab(view, origin);
+        view = GameObject.Instantiate<View>(view, origin);
+        diContainer.Inject(view);
         return view;
     }
 }

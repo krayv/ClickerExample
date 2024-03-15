@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Transform _origin;
 
     [SerializeField] private List<View> _viewsPrefabs = new List<View>();
-    private List<View> _instantiatedViews = new List<View>();
+    private readonly List<View> _instantiatedViews = new List<View>();
 
     [Inject]
     private void Construct(IViewFactory factory)
@@ -32,7 +32,32 @@ public class UIController : MonoBehaviour
         {
             View viewPrefab = _viewsPrefabs.Find(v => v is TView);
             view = _viewFactory.CreateViewFromPrefab(viewPrefab, _origin);
+            _instantiatedViews.Add(view);
         }
         view.OpenView();
+    }
+
+    public void CloseView<TView>() where TView : View
+    {
+        View view = _instantiatedViews.Find(v => v is TView);
+        if (view == null)
+        {
+            return;
+        }
+        view.CloseView();
+    }
+
+    public void SwitchView<TView>() where TView : View
+    {
+        View view = _instantiatedViews.Find(v => v is TView);
+        if (view == null)
+        {
+            View viewPrefab = _viewsPrefabs.Find(v => v is TView);
+            view = _viewFactory.CreateViewFromPrefab(viewPrefab, _origin);
+            _instantiatedViews.Add(view);
+            view.OpenView();
+            return;
+        }
+        view.SwitchView();
     }
 }

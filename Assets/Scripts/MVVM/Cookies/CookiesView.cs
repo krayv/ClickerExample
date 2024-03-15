@@ -26,7 +26,7 @@ public class CookiesView : View
 
         _cookiesViewModel.Cookies.Subscribe(_ => _cookiesCountText.text = _.ToString()).AddTo(_disposable);
         _clickButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.ClickCookie()).AddTo(_disposable);
-        _openBuildingsButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.OpenBuildingsView());
+        _openBuildingsButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchBuildingsView());
         _cookiesViewModel.CookiesPerSecond.Subscribe(UpdateCpS).AddTo(_disposable);
     }
 
