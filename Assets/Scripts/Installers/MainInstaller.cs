@@ -10,7 +10,9 @@ public class MainInstaller : MonoInstaller
         Container.Bind<UIController>().FromInstance(_uiController).AsSingle().NonLazy();
         Container.Bind<IResourceLoader>().To<DefaultResourceLoader>().FromNew().AsSingle();
         Container.Bind<IViewFactory>().To<DefaultViewFactory>().AsSingle();
-        Container.Bind<BuildingsUIItemFactory>().FromNew().AsSingle();
+        Container.Bind<BuildingsUIItemFactory>().FromNew().AsTransient();
+
+        Container.Bind<CookieProductionModel>().FromNew().AsSingle();
 
         Container.Bind<CookiesModel>().FromNew().AsSingle().NonLazy();
         Container.Bind<CookiesViewModel>().FromNew().AsSingle().NonLazy();
