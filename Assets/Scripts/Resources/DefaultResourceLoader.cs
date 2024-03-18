@@ -7,8 +7,6 @@ using Zenject;
 public class DefaultResourceLoader : IResourceLoader
 {
     private const string BuildingsPath = "Buildings";
-    private const string BuildingsUIItemPath = "UI/BuildingItem";
-    private const string AchievementUIItemPath = "UI/AchievementItem";
     private const string AchievementsPath = "Achievements";
     private const string UIElementsPath = "UI";
 
@@ -25,11 +23,6 @@ public class DefaultResourceLoader : IResourceLoader
         return Resources.LoadAll<Building>(BuildingsPath).ToList();
     }
 
-    public BuildingUIItem LoadBuildingUIItemPrefab()
-    {
-        return Resources.Load<BuildingUIItem>(BuildingsUIItemPath);
-    }
-
     public Dictionary<Achievement, bool> LoadAchievements()
     {
         List<Achievement> achievements = Resources.LoadAll<Achievement>(AchievementsPath).ToList();
@@ -40,11 +33,6 @@ public class DefaultResourceLoader : IResourceLoader
             achievementsDic.Add(achievement, false);
         }
         return achievementsDic;
-    }
-
-    public AchievementUIItem LoadAchievementUIItemPrefab()
-    {
-        return Resources.Load<AchievementUIItem>(AchievementUIItemPath);
     }
 
     public TUIItem LoadUIItem<TUIItem>() where TUIItem : UIItem

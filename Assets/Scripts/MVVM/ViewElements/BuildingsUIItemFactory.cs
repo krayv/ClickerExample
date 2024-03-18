@@ -2,24 +2,18 @@ using UnityEngine;
 using Zenject;
 using UniRx;
 
-public class BuildingsUIItemFactory : Factory, IUIItemFactory
+public class BuildingsUIItemFactory : UIItemFactory<Building, BuildingUIItem>
 {
     private BuildingsViewModel _buildingsViewModel;
-    private IResourceLoader _resourceLoader;
-
-    private Transform _container;
-    private BuildingUIItem _itemPrefab;
 
     [Inject]
-    private void Construct(BuildingsViewModel buildingsViewModel, IResourceLoader resourceLoader)
+    private void Construct(BuildingsViewModel buildingsViewModel)
     {
         _buildingsViewModel = buildingsViewModel;
-        _resourceLoader = resourceLoader;
     }
 
-    public void InstantiateItems(Transform container)
+    public override void InstantiateItems(Transform container)
     {
-        _itemPrefab = _resourceLoader.LoadBuildingUIItemPrefab();
         _container = container;
         foreach (var building in _buildingsViewModel.Buildings)
         {
@@ -32,11 +26,4 @@ public class BuildingsUIItemFactory : Factory, IUIItemFactory
     {
         InstantiateItem(building.Key);
     }
-
-    private void InstantiateItem(Building building)
-    {
-        BuildingUIItem item = GameObject.Instantiate(_itemPrefab, _container);
-        diContainer.Inject(item);
-        item.SetupUIItem(building);
-    }  
 }
