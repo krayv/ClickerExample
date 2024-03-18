@@ -19,7 +19,7 @@ public class BuildingsUIItemFactory : Factory, IUIItemFactory
 
     public void InstantiateItems(Transform container)
     {
-        _itemPrefab = _resourceLoader.LoadBuildingBuildingUIItemPrefab();
+        _itemPrefab = _resourceLoader.LoadBuildingUIItemPrefab();
         _container = container;
         foreach (var building in _buildingsViewModel.Buildings)
         {

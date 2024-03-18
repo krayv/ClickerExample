@@ -4,5 +4,11 @@ public interface IResourceLoader
 {
     public List<Building> LoadBuildings();
 
-    public BuildingUIItem LoadBuildingBuildingUIItemPrefab();
+    public Dictionary<Achievement, bool> LoadAchievements();
+
+    public BuildingUIItem LoadBuildingUIItemPrefab();
+
+    public AchievementUIItem LoadAchievementUIItemPrefab();
+
+    public TUIItem LoadUIItem<TUIItem>() where TUIItem : UIItem;
 }

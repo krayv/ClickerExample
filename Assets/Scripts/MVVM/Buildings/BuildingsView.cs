@@ -17,10 +17,4 @@ public class BuildingsView : View
         _buildingsUIItemFactory = buildingsUIItemFactory;
         _buildingsUIItemFactory.InstantiateItems(container);
     }
-
-
-    public override void OpenView()
-    {
-        base.OpenView();       
-    }
 }

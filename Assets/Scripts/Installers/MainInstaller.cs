@@ -11,6 +11,7 @@ public class MainInstaller : MonoInstaller
         Container.Bind<IResourceLoader>().To<DefaultResourceLoader>().FromNew().AsSingle();
         Container.Bind<IViewFactory>().To<DefaultViewFactory>().AsSingle();
         Container.Bind<BuildingsUIItemFactory>().FromNew().AsTransient();
+        Container.Bind<AchievementsUIItemFactory>().FromNew().AsTransient();
 
         Container.Bind<CookieProductionModel>().FromNew().AsSingle();
 
@@ -18,6 +19,9 @@ public class MainInstaller : MonoInstaller
         Container.Bind<CookiesViewModel>().FromNew().AsSingle().NonLazy();
 
         Container.Bind<BuildingsModel>().FromNew().AsSingle();
-        Container.Bind<BuildingsViewModel>().FromNew().AsSingle();       
+        Container.Bind<BuildingsViewModel>().FromNew().AsSingle();
+
+        Container.Bind<AchievementsModel>().FromNew().AsSingle();
+        Container.Bind<AchievementsViewModel>().FromNew().AsSingle();
     }
 }
