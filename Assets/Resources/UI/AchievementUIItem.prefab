@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7990064099920674525}
+  mainRectTransform: {fileID: 1642638209007398325}
   inactiveIcon: {fileID: 3911199343066753238}
 --- !u!1 &6041724515142854982
 GameObject:

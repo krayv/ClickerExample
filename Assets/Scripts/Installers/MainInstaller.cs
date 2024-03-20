@@ -4,10 +4,13 @@ using UnityEngine;
 public class MainInstaller : MonoInstaller
 {
     [SerializeField] private UIController _uiController;
+    [SerializeField] private Tooltip _tooltip;
 
     public override void InstallBindings()
     {
         Container.Bind<UIController>().FromInstance(_uiController).AsSingle().NonLazy();
+        Container.Bind<Tooltip>().FromInstance(_tooltip).AsSingle().NonLazy();
+
         Container.Bind<IResourceLoader>().To<DefaultResourceLoader>().FromNew().AsSingle();
         Container.Bind<IViewFactory>().To<DefaultViewFactory>().AsSingle();
         Container.Bind<BuildingsUIItemFactory>().FromNew().AsTransient();

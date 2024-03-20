@@ -14,6 +14,8 @@ public class AchievementUIItem : UIItem
 
     private readonly CompositeDisposable _disposable = new();
 
+    public override Item Item => _achievement;
+
     [Inject]
     private void Construct(AchievementsViewModel achievementsViewModel)
     {

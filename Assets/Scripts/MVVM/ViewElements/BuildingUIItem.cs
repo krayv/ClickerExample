@@ -21,6 +21,8 @@ public class BuildingUIItem : UIItem
     private readonly CompositeDisposable _disposable = new();
     private BigInteger _currentPrice;
 
+    public override Item Item => _building;
+
     [Inject]
     private void Construct(BuildingsViewModel buildingsViewModel)
     {

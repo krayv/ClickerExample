@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 public abstract class Achievement : Item
 {
-    protected AchievementsModel _achievementsModel;
+    protected AchievementsModel _achievementsModel;    
 
     [Inject]
     private void Construct(AchievementsModel achievementsModel)

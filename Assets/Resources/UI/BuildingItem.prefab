@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 4428280896550856348}
+  mainRectTransform: {fileID: 4605634396142267153}
   _itemNameText: {fileID: 1220088652932462935}
   _itemCurrentPriceText: {fileID: 2757673438343926286}
   _itemCurrentCountText: {fileID: 8006549143813021186}
