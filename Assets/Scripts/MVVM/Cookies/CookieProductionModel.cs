@@ -29,9 +29,8 @@ public class CookieProductionModel
 
         foreach (var building in _buildingsModel.Buildings)
         {
-            value += building.Key.BaseProduction * building.Value;
+            value += building.Key.GetSummoryProduction();
         }
-
         CookiesPerSecond.Value = value;
     }
 }

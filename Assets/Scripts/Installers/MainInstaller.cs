@@ -26,5 +26,7 @@ public class MainInstaller : MonoInstaller
 
         Container.Bind<AchievementsModel>().FromNew().AsSingle();
         Container.Bind<AchievementsViewModel>().FromNew().AsSingle();
+
+        Container.Bind<UpgradesModel>().FromNew().AsSingle();
     }
 }

@@ -17,6 +17,7 @@ public class BuildingsModel
     [Inject]
     private void Construct(IResourceLoader loader)
     {
+
         _resourceLoader = loader;
         Buildings = new ReactiveDictionary<Building, int>();        
         Buildings.ObserveReplace().Subscribe(ValidateBuildings).AddTo(_disposable);
@@ -25,9 +26,9 @@ public class BuildingsModel
 
         BuildingPrices = new ReactiveDictionary<Building, BigInteger>();
 
-        foreach (Building building in _resourceLoader.LoadBuildings())
+        foreach (var building in _resourceLoader.LoadBuildings())
         {
-            Buildings.Add(building, 0);
+            Buildings.Add(building.Key, building.Value);
         }
     }
 

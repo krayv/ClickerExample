@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mouse
   m_EditorClassIdentifier: 
   Name: Mouse
+  Description: A mouse clicks every second and produce 1 cookie
   ID: 0
   BasePrice: 15
   BaseProduction: 1

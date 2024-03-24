@@ -8,6 +8,7 @@ public class DefaultResourceLoader : IResourceLoader
 {
     private const string BuildingsPath = "Buildings";
     private const string AchievementsPath = "Achievements";
+    private const string UpgradesPath = "Upgrades";
     private const string UIElementsPath = "UI";
 
     private DiContainer _diContainer;
@@ -18,9 +19,16 @@ public class DefaultResourceLoader : IResourceLoader
         _diContainer = diContainer;
     }
 
-    public List<Building> LoadBuildings()
+    public Dictionary<Building, int> LoadBuildings()
     {
-        return Resources.LoadAll<Building>(BuildingsPath).ToList();
+        List<Building> buildings = Resources.LoadAll<Building>(BuildingsPath).ToList();
+        Dictionary<Building, int> buildingsDic = new Dictionary<Building, int>();
+        foreach (Building building in buildings)
+        {
+            _diContainer.Inject(building);
+            buildingsDic.Add(building, 0);
+        }
+        return buildingsDic;
     }
 
     public Dictionary<Achievement, bool> LoadAchievements()
@@ -38,5 +46,17 @@ public class DefaultResourceLoader : IResourceLoader
     public TUIItem LoadUIItem<TUIItem>() where TUIItem : UIItem
     {
         return Resources.LoadAll<TUIItem>(UIElementsPath).FirstOrDefault();
+    }
+
+    public Dictionary<GameUpgrade, bool> LoadUpgrades()
+    {
+        List<GameUpgrade> upgrades = Resources.LoadAll<GameUpgrade>(UpgradesPath).ToList();
+        Dictionary<GameUpgrade, bool> upgradesDic = new Dictionary<GameUpgrade, bool>();
+        foreach (GameUpgrade upgrade in upgrades)
+        {
+            _diContainer.Inject(upgrade);
+            upgradesDic.Add(upgrade, false);
+        }
+        return upgradesDic;
     }
 }
