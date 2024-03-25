@@ -10,6 +10,9 @@ public class UpgradesViewModel
 
     public ReactiveDictionary<GameUpgrade, bool> Upgrades => _upgradesModel.Upgrades;
 
+    public ReactiveCollection<GameUpgrade> AchievedUpgrades => _upgradesModel.AchievedUpgrades;
+
+
     [Inject]
     private void Construct(UpgradesModel upgradesModel, CookiesModel cookiesModel)
     {

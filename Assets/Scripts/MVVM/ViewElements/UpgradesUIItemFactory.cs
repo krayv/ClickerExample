@@ -18,15 +18,15 @@ public class UpgradesUIItemFactory : UIItemFactory<GameUpgrade, UpgradeUIItem>
     public override void InstantiateItems(Transform container)
     {
         _container = container;
-        foreach (var building in _upgradesViewModel.Upgrades)
+        foreach (var upgrade in _upgradesViewModel.AchievedUpgrades)
         {
-            InstantiateItem(building.Key);
+            InstantiateItem(upgrade);
         }
-        _upgradesViewModel.Upgrades.ObserveAdd().Subscribe(OnAddItem).AddTo(_disposable);
+        _upgradesViewModel.AchievedUpgrades.ObserveAdd().Subscribe(OnAddItem).AddTo(_disposable);
     }
 
-    private void OnAddItem(DictionaryAddEvent<GameUpgrade, bool> achievement)
+    private void OnAddItem(CollectionAddEvent<GameUpgrade> upgrade)
     {
-        InstantiateItem(achievement.Key);
+        InstantiateItem(upgrade.Value);
     }
 }
