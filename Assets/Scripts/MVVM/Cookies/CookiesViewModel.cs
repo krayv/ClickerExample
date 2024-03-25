@@ -37,6 +37,11 @@ public class CookiesViewModel
         _uiController.SwitchView<AchievementsView>();
     }
 
+    public void SwitchUpgradesButton()
+    {
+        _uiController.SwitchView<UpgradesView>();
+    }
+
     public void ProduceCookies(float timeFactor)
     {
         double income = (double)CookiesPerSecond.Value * timeFactor + _previuousCookiesLeft;

@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class UpgradesView : MonoBehaviour
+public class UpgradesView : View
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private UpgradesViewModel _upgradeViewModel;
+    private UpgradesUIItemFactory _upgradeUIItemFactory;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Transform container;
+
+    [Inject]
+    private void Construct(UpgradesViewModel upgradesViewModel, UpgradesUIItemFactory upgradesUIItemFactory)
     {
-        
+        _upgradeViewModel = upgradesViewModel;
+        _upgradeUIItemFactory = upgradesUIItemFactory;
+        _upgradeUIItemFactory.InstantiateItems(container);
     }
 }

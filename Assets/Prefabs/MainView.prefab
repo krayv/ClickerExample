@@ -1063,6 +1063,7 @@ MonoBehaviour:
   _clickButton: {fileID: 6229836076317551812}
   _openBuildingsButton: {fileID: 4985497393226686878}
   _openAchievementsButton: {fileID: 999950444063387407}
+  _openUpgradesButton: {fileID: 1950528846256120844}
 --- !u!1 &6210868051588995184
 GameObject:
   m_ObjectHideFlags: 0

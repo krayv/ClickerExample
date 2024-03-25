@@ -15,6 +15,7 @@ public class MainInstaller : MonoInstaller
         Container.Bind<IViewFactory>().To<DefaultViewFactory>().AsSingle();
         Container.Bind<BuildingsUIItemFactory>().FromNew().AsTransient();
         Container.Bind<AchievementsUIItemFactory>().FromNew().AsTransient();
+        Container.Bind<UpgradesUIItemFactory>().FromNew().AsTransient();
 
         Container.Bind<CookieProductionModel>().FromNew().AsSingle();
 
@@ -28,5 +29,6 @@ public class MainInstaller : MonoInstaller
         Container.Bind<AchievementsViewModel>().FromNew().AsSingle();
 
         Container.Bind<UpgradesModel>().FromNew().AsSingle();
+        Container.Bind<UpgradesViewModel>().FromNew().AsSingle();
     }
 }

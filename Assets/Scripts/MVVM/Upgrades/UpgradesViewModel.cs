@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class UpgradesViewModel : MonoBehaviour
+using Zenject;
+using UniRx;
+public class UpgradesViewModel
 {
-    // Start is called before the first frame update
-    void Start()
+    private UpgradesModel _upgradesModel;
+    private CookiesModel _cookieModel;
+
+    public ReactiveDictionary<GameUpgrade, bool> Upgrades => _upgradesModel.Upgrades;
+
+    [Inject]
+    private void Construct(UpgradesModel upgradesModel, CookiesModel cookiesModel)
     {
-        
+        _upgradesModel = upgradesModel;
+        _cookieModel = cookiesModel;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BuyUpgrade(GameUpgrade upgrade)
     {
-        
+        _cookieModel.Cookies.Value -= upgrade.BasePrice;
+        _upgradesModel.Upgrades[upgrade] = true;
     }
 }

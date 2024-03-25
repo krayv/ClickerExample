@@ -17,6 +17,7 @@ public class CookiesView : View
     [SerializeField] private Button _clickButton;
     [SerializeField] private Button _openBuildingsButton;
     [SerializeField] private Button _openAchievementsButton;
+    [SerializeField] private Button _openUpgradesButton;
 
     private readonly CompositeDisposable _disposable = new();
 
@@ -29,6 +30,7 @@ public class CookiesView : View
         _clickButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.ClickCookie()).AddTo(_disposable);
         _openBuildingsButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchBuildingsView());
         _openAchievementsButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchAchievementsView());
+        _openUpgradesButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchUpgradesButton());
         _cookiesViewModel.CookiesPerSecond.Subscribe(UpdateCpS).AddTo(_disposable);
     }
 

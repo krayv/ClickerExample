@@ -33,7 +33,7 @@ public class Building : BuyableItem
 
         foreach (BuildingUpgrade buildingUpgrade in buildingUpgrades)
         {
-            summoryProduction *= buildingUpgrade.CalculateProduction(summoryProduction);
+            summoryProduction = buildingUpgrade.CalculateProduction(summoryProduction);
         }
         return summoryProduction;
     }
