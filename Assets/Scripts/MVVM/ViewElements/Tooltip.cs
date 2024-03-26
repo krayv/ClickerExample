@@ -24,7 +24,7 @@ public class Tooltip : MonoBehaviour
         mainText.text = item.Description;
         nameText.text = item.Name;
 
-        _rectTransform.SetParent(itemRectTransform);
+        _rectTransform.SetAsLastSibling();
         _rectTransform.position = itemRectTransform.position + (Vector3)offset;
         CurrentItem = item;
     }
