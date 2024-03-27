@@ -15,4 +15,5 @@ MonoBehaviour:
   Name: You should stop
   Description: Have a 10000 Cookies in bank
   ID: 0
+  Order: 40
   CookieRequierment: 10000

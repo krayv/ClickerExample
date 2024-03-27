@@ -15,4 +15,5 @@ MonoBehaviour:
   Name: 20 Cookies
   Description: Have a 20 Cookies in bank
   ID: 0
+  Order: 10
   CookieRequierment: 20

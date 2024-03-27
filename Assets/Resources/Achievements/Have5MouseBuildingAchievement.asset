@@ -15,5 +15,6 @@ MonoBehaviour:
   Name: 5 Mouses
   Description: Buy 5 mouses
   ID: 0
+  Order: 110
   Building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}
   CountRequire: 5
