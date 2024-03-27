@@ -9,6 +9,7 @@ using Zenject;
 public abstract class UIItem : MonoBehaviour
 {
     [SerializeField] protected Image icon;
+    [SerializeField] protected Image inactiveForeground;
     [SerializeField] private RectTransform mainRectTransform;
     [SerializeField] private Vector2 tooltipOffset;
 

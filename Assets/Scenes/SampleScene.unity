@@ -357,14 +357,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tooltip
       objectReference: {fileID: 0}
-    - target: {fileID: 1893642093669516124, guid: 87c28b8a8ee40d647a7a45388a31783a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2568717492664171635, guid: 87c28b8a8ee40d647a7a45388a31783a, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
     - target: {fileID: 3802378397899184608, guid: 87c28b8a8ee40d647a7a45388a31783a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

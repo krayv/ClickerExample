@@ -32,7 +32,7 @@ public class UpgradeUIItem : UIItem
             _upgrade = upgrade;
             _iconButton.onClick.AsObservable().Subscribe(_ => OnClick()).AddTo(_disposable);
             _upgradeViewModel.Upgrades.ObserveReplace().Where(_ => _.Key == _upgrade).Subscribe(OnBuyUpgrade).AddTo(_disposable);
-            _cookiesViewModel.Cookies.Subscribe(CheckCookies).AddTo(_disposable);
+            _cookiesViewModel.Cookies.Where(_=>!_upgradeViewModel.Upgrades[_upgrade]).Subscribe(CheckCookies).AddTo(_disposable);
         }
     }
 
@@ -43,7 +43,7 @@ public class UpgradeUIItem : UIItem
 
     private void CheckCookies(BigInteger value)
     {
-          _iconButton.interactable = value >= _upgrade.BasePrice;
+        SetInteractable(value >= _upgrade.BasePrice);
     }
 
     private void OnBuyUpgrade(DictionaryReplaceEvent<GameUpgrade, bool> dictionaryReplaceEvent)
@@ -56,7 +56,12 @@ public class UpgradeUIItem : UIItem
 
     private void SetIconAsBuyed()
     {
-        _iconButton.interactable = false;
+        SetInteractable(false);
         _buyedIcon.gameObject.SetActive(true);
+    }
+    private void SetInteractable(bool interactable)
+    {
+        _iconButton.interactable = interactable;
+        inactiveForeground.gameObject.SetActive(!interactable);
     }
 }

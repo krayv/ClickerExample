@@ -16,6 +16,7 @@ public class BuildingUIItem : UIItem
     [SerializeField] private TextMeshProUGUI _itemCurrentCountText;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _sellButton;
+    [SerializeField] private Image _sellInactive;
 
     private Building _building;
     private readonly CompositeDisposable _disposable = new();
@@ -82,10 +83,12 @@ public class BuildingUIItem : UIItem
     private void SetBuyButton(bool interactable)
     {
         _buyButton.interactable = interactable;
+        inactiveForeground.gameObject.SetActive(!interactable);
     }
 
-    private void SetSellButton(bool inreractable)
+    private void SetSellButton(bool interactable)
     {
-        _sellButton.interactable = inreractable;
+        _sellButton.interactable = interactable;
+        _sellInactive.gameObject.SetActive(!interactable);
     }
 }
