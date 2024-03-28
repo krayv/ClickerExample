@@ -14,7 +14,7 @@ public class AchievementsModel
     private void Construct(IResourceLoader loader)
     {
         _loader = loader;
-        Achievements = loader.LoadAchievements().ToReactiveDictionary();
+        Achievements = loader.LoadProgressAchievements().ToReactiveDictionary();
         foreach (var achievement in Achievements)
         {
             achievement.Key.StartObserve();

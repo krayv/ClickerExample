@@ -16,7 +16,7 @@ public class UpgradesModel
         _achievementsModel = achievementsModel;
         AchievedUpgrades = new ReactiveCollection<GameUpgrade>();
 
-        Upgrades = loader.LoadUpgrades().ToReactiveDictionary();
+        Upgrades = loader.LoadProgressUpgrades().ToReactiveDictionary();
         foreach (var upgrade in Upgrades)
         {
             if (upgrade.Key.RequiereAchievement == null || _achievementsModel.Achievements[upgrade.Key.RequiereAchievement])

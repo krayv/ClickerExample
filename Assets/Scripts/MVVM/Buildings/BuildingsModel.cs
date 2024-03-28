@@ -26,7 +26,7 @@ public class BuildingsModel
 
         BuildingPrices = new ReactiveDictionary<Building, BigInteger>();
 
-        foreach (var building in _resourceLoader.LoadBuildings())
+        foreach (var building in _resourceLoader.LoadProgressBuildings())
         {
             Buildings.Add(building.Key, building.Value);
         }

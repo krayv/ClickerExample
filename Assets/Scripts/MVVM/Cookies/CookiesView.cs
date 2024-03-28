@@ -11,6 +11,7 @@ public class CookiesView : View
 {
 
     private CookiesViewModel _cookiesViewModel;
+    private IGameProgressSaver _gameProgressSaver;
 
     [SerializeField] private TextMeshProUGUI _cookiesCountText;
     [SerializeField] private TextMeshProUGUI _cpsText;
@@ -18,13 +19,15 @@ public class CookiesView : View
     [SerializeField] private Button _openBuildingsButton;
     [SerializeField] private Button _openAchievementsButton;
     [SerializeField] private Button _openUpgradesButton;
+    [SerializeField] private Button _saveButton;
 
     private readonly CompositeDisposable _disposable = new();
 
     [Inject]
-    private void Contsruct(CookiesViewModel cookiesViewModel)
+    private void Contsruct(CookiesViewModel cookiesViewModel, IGameProgressSaver gameProgressSaver)
     {
         _cookiesViewModel = cookiesViewModel;
+        _gameProgressSaver = gameProgressSaver;
 
         _cookiesViewModel.Cookies.Subscribe(_ => _cookiesCountText.text = _.ToString()).AddTo(_disposable);
         _clickButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.ClickCookie()).AddTo(_disposable);
@@ -32,6 +35,7 @@ public class CookiesView : View
         _openAchievementsButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchAchievementsView());
         _openUpgradesButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchUpgradesButton());
         _cookiesViewModel.CookiesPerSecond.Subscribe(UpdateCpS).AddTo(_disposable);
+        _saveButton.OnClickAsObservable().Subscribe(_ => _gameProgressSaver.SaveGame());
     }
 
     private void Update()
