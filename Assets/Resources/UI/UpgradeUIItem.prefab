@@ -216,7 +216,7 @@ MonoBehaviour:
   mainRectTransform: {fileID: 1642638209007398325}
   tooltipOffset: {x: 0, y: 50}
   _iconButton: {fileID: 5053751585872667424}
-  _buyedIcon: {fileID: 3911199343066753238}
+  _purchasedIcon: {fileID: 3911199343066753238}
 --- !u!1 &5190104807200190380
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class UpgradeUIItem : UIItem
     private readonly CompositeDisposable _disposable = new();
 
     [SerializeField] private Button _iconButton;
-    [SerializeField] private Image _buyedIcon;
+    [SerializeField] private Image _purchasedIcon;
 
     [Inject]
     private void Construct(UpgradesViewModel upgradesViewModel, CookiesViewModel cookiesViewModel)
@@ -33,6 +33,10 @@ public class UpgradeUIItem : UIItem
             _iconButton.onClick.AsObservable().Subscribe(_ => OnClick()).AddTo(_disposable);
             _upgradeViewModel.Upgrades.ObserveReplace().Where(_ => _.Key == _upgrade).Subscribe(OnBuyUpgrade).AddTo(_disposable);
             _cookiesViewModel.Cookies.Where(_=>!_upgradeViewModel.Upgrades[_upgrade]).Subscribe(CheckCookies).AddTo(_disposable);
+            if (_upgradeViewModel.Upgrades[_upgrade])
+            {
+                SetIconAsPurchased();
+            }
         }
     }
 
@@ -50,14 +54,14 @@ public class UpgradeUIItem : UIItem
     {
         if (dictionaryReplaceEvent.NewValue)
         {
-            SetIconAsBuyed();
+            SetIconAsPurchased();
         }
     }
 
-    private void SetIconAsBuyed()
+    private void SetIconAsPurchased()
     {
         SetInteractable(false);
-        _buyedIcon.gameObject.SetActive(true);
+        _purchasedIcon.gameObject.SetActive(true);
     }
     private void SetInteractable(bool interactable)
     {
