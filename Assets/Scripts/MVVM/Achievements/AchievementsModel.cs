@@ -8,12 +8,19 @@ public class AchievementsModel
 {
     public ReactiveDictionary<Achievement, bool> Achievements { get; private set; }
 
+    private readonly CompositeDisposable _disposable = new();
+
     private IGameProgressLoader _loader;
 
     [Inject]
     private void Construct(IGameProgressLoader loader)
     {
         _loader = loader;
-        Achievements = loader.GetProgressData().AchievedAchievements.ToReactiveDictionary();
+        loader.GameProgress.Subscribe(SetData).AddTo(_disposable);
+    }
+
+    private void SetData(GameProgress gameProgress)
+    {
+        Achievements = gameProgress.AchievedAchievements.ToReactiveDictionary();
     }
 }

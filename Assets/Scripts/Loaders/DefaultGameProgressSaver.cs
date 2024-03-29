@@ -11,14 +11,16 @@ public class DefaultGameProgressSaver : IGameProgressSaver
     private AchievementsModel _achievementsModel;
     private CookiesModel _cookiesModel;
     private UpgradesModel _upgradesModel;
+    private IGameProgressLoader _gameProgressLoader;
 
     [Inject]
-    private void Construct(BuildingsModel buildingsModel, AchievementsModel achievementsModel, CookiesModel cookiesModel, UpgradesModel upgradesModel)
+    private void Construct(BuildingsModel buildingsModel, AchievementsModel achievementsModel, CookiesModel cookiesModel, UpgradesModel upgradesModel, IGameProgressLoader gameProgressLoader)
     {
         _buildingsModel = buildingsModel;
         _achievementsModel = achievementsModel;
         _cookiesModel = cookiesModel;
         _upgradesModel = upgradesModel;
+        _gameProgressLoader = gameProgressLoader;
     }
 
     public void SaveGame()
@@ -27,5 +29,12 @@ public class DefaultGameProgressSaver : IGameProgressSaver
         string serializedData = JsonConvert.SerializeObject(data);
         File.WriteAllText(Application.dataPath + "saveFile.json", serializedData);
         Debug.Log("Game Saved: " + serializedData);
+    }
+
+    public void ResetGameProgress()
+    {
+        File.Delete(Application.dataPath + "saveFile.json");
+        Debug.Log("The Game Save deleted!");
+        _gameProgressLoader.LoadProgressData();
     }
 }

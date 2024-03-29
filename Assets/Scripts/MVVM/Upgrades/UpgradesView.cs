@@ -17,8 +17,8 @@ public class UpgradesView : View
     private void Construct(UpgradesViewModel upgradesViewModel, UpgradesUIItemFactory upgradesUIItemFactory)
     {
         _upgradeViewModel = upgradesViewModel;
-        _upgradeUIItemFactory = upgradesUIItemFactory;
-        _upgradeUIItemFactory.InstantiateItems(container);
+        _upgradeUIItemFactory = upgradesUIItemFactory;       
         closeButton.OnClickAsObservable().Subscribe(_ => CloseView());
+        _upgradeUIItemFactory.InstantiateItems(container);
     }
 }

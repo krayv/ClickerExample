@@ -20,11 +20,12 @@ public class CookiesView : View
     [SerializeField] private Button _openAchievementsButton;
     [SerializeField] private Button _openUpgradesButton;
     [SerializeField] private Button _saveButton;
+    [SerializeField] private Button _resetButton;
 
     private readonly CompositeDisposable _disposable = new();
 
     [Inject]
-    private void Contsruct(CookiesViewModel cookiesViewModel, IGameProgressSaver gameProgressSaver)
+    private void Construct(CookiesViewModel cookiesViewModel, IGameProgressSaver gameProgressSaver)
     {
         _cookiesViewModel = cookiesViewModel;
         _gameProgressSaver = gameProgressSaver;
@@ -36,6 +37,7 @@ public class CookiesView : View
         _openUpgradesButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchUpgradesButton());
         _cookiesViewModel.CookiesPerSecond.Subscribe(UpdateCpS).AddTo(_disposable);
         _saveButton.OnClickAsObservable().Subscribe(_ => _gameProgressSaver.SaveGame());
+        _resetButton.OnClickAsObservable().Subscribe(_ => _gameProgressSaver.ResetGameProgress());
     }
 
     private void Update()

@@ -8,8 +8,8 @@ public class BuildingsViewModel
     public ReactiveProperty<BigInteger> Cookies => _cookiesModel.Cookies;
     public ReactiveDictionary<Building, int> Buildings => _buildingsModel.Buildings;
     public ReactiveDictionary<Building, BigInteger> BuildingPrices => _buildingsModel.BuildingPrices;
-    public ReactiveDictionary<Building, bool> AwaibleBuildingsForBuying { get; private set; }
-    public ReactiveDictionary<Building, bool> AwaibleBuildingsForSelling { get; private set; }
+    public ReactiveDictionary<Building, bool> AvailableBuildingsForBuying { get; private set; }
+    public ReactiveDictionary<Building, bool> AvailableBuildingsForSelling { get; private set; }
 
     private readonly CompositeDisposable _disposable = new();
     private CookiesModel _cookiesModel;
@@ -19,15 +19,15 @@ public class BuildingsViewModel
     [Inject]
     private void Construct(CookiesModel cookiesModel, BuildingsModel buildingsModel)
     {
-        AwaibleBuildingsForBuying = new ReactiveDictionary<Building, bool>();
-        AwaibleBuildingsForSelling = new ReactiveDictionary<Building, bool>();
+        AvailableBuildingsForBuying = new ReactiveDictionary<Building, bool>();
+        AvailableBuildingsForSelling = new ReactiveDictionary<Building, bool>();
         
         _buildingsModel = buildingsModel;
         Buildings.ObserveAdd().Subscribe(OnAddBuilding).AddTo(_disposable);
-        Buildings.ObserveReplace().Subscribe(UpdateAwaibleBuildings).AddTo(_disposable);
+        Buildings.ObserveReplace().Subscribe(UpdateAvailableBuildings).AddTo(_disposable);
 
         _cookiesModel = cookiesModel;
-        Cookies.Subscribe(UpdateAwaibleBuildings).AddTo(_disposable);
+        Cookies.Subscribe(UpdateAvailableBuildings).AddTo(_disposable);
 
         foreach (var building in Buildings)
         {
@@ -42,29 +42,29 @@ public class BuildingsViewModel
     
     private void AddNewBuilding(Building addBuilding, int count)
     {
-        if(!AwaibleBuildingsForBuying.ContainsKey(addBuilding))
-            AwaibleBuildingsForBuying.Add(addBuilding, IsAwaibleForBuying(addBuilding));
-        if(!AwaibleBuildingsForSelling.ContainsKey(addBuilding))
-            AwaibleBuildingsForSelling.Add(addBuilding, count > 0);
+        if(!AvailableBuildingsForBuying.ContainsKey(addBuilding))
+            AvailableBuildingsForBuying.Add(addBuilding, IsAvailableForBuying(addBuilding));
+        if(!AvailableBuildingsForSelling.ContainsKey(addBuilding))
+            AvailableBuildingsForSelling.Add(addBuilding, count > 0);
     }
 
-    private void UpdateAwaibleBuildings(BigInteger value)
+    private void UpdateAvailableBuildings(BigInteger value)
     {
         foreach (var buildingPrice in BuildingPrices)
         {
-            AwaibleBuildingsForBuying[buildingPrice.Key] = IsAwaibleForBuying(buildingPrice.Key);
+            AvailableBuildingsForBuying[buildingPrice.Key] = IsAvailableForBuying(buildingPrice.Key);
         }
     }
 
-    private bool IsAwaibleForBuying(Building building)
+    private bool IsAvailableForBuying(Building building)
     {
         return BuildingPrices[building] <= Cookies.Value;
     }
 
-    private void UpdateAwaibleBuildings(DictionaryReplaceEvent<Building, int> buildingForUpdate)
+    private void UpdateAvailableBuildings(DictionaryReplaceEvent<Building, int> buildingForUpdate)
     {
-        AwaibleBuildingsForBuying[buildingForUpdate.Key] = IsAwaibleForBuying(buildingForUpdate.Key);
-        AwaibleBuildingsForSelling[buildingForUpdate.Key] = buildingForUpdate.NewValue > 0;
+        AvailableBuildingsForBuying[buildingForUpdate.Key] = IsAvailableForBuying(buildingForUpdate.Key);
+        AvailableBuildingsForSelling[buildingForUpdate.Key] = buildingForUpdate.NewValue > 0;
     }
 
     public void BuyBuilding(Building building)

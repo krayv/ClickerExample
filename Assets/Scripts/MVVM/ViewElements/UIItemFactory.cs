@@ -30,12 +30,16 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
         }
     }
 
-    protected void InstantiateItem(TItem achievement)
+    protected void InstantiateItem(TItem item)
     {
-        TUIItem item = GameObject.Instantiate(_itemPrefab, _container);
-        diContainer.Inject(item);
-        item.SetupUIItem(achievement);
-        _instantiatedItems.Add(item);
+        if (_instantiatedItems.Any(i=>i.Item == item))
+        {
+            return;
+        }
+        TUIItem uiItem = GameObject.Instantiate(_itemPrefab, _container);
+        diContainer.Inject(uiItem);
+        uiItem.SetupUIItem(item);
+        _instantiatedItems.Add(uiItem);
         ReorderElements();
     }
 }

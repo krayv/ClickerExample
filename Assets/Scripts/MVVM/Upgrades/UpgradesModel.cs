@@ -8,6 +8,7 @@ public class UpgradesModel
 
     private IGameProgressLoader _loader;
     private AchievementsModel _achievementsModel;
+    private readonly CompositeDisposable _disposable = new();
 
     [Inject]
     private void Construct(IGameProgressLoader loader, AchievementsModel achievementsModel)
@@ -16,7 +17,12 @@ public class UpgradesModel
         _achievementsModel = achievementsModel;
         AchievedUpgrades = new ReactiveCollection<GameUpgrade>();
 
-        Upgrades = loader.GetProgressData().PurchasedUpgrades.ToReactiveDictionary();
+        loader.GameProgress.Subscribe(SetData).AddTo(_disposable);       
+    }
+
+    private void SetData(GameProgress gameProgress)
+    {
+        Upgrades = gameProgress.PurchasedUpgrades.ToReactiveDictionary();
         foreach (var upgrade in Upgrades)
         {
             if (upgrade.Key.RequieredAchievement == null || _achievementsModel.Achievements[upgrade.Key.RequieredAchievement])

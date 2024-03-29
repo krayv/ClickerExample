@@ -38,16 +38,16 @@ public class BuildingUIItem : UIItem
             _building = building;
             _buildingsViewModel.Buildings.ObserveReplace().Where(_ => _.Key == _building).Subscribe(OnBuildingCountChanged).AddTo(_disposable);
             _buildingsViewModel.BuildingPrices.ObserveReplace().Where(_ => _.Key == _building).Subscribe(OnBuildingPriceChanged).AddTo(_disposable);
-            _buildingsViewModel.AwaibleBuildingsForBuying.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateBuyButton).AddTo(_disposable);
-            _buildingsViewModel.AwaibleBuildingsForSelling.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateSellButton).AddTo(_disposable);
+            _buildingsViewModel.AvailableBuildingsForBuying.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateBuyButton).AddTo(_disposable);
+            _buildingsViewModel.AvailableBuildingsForSelling.ObserveReplace().Where(_ => _.Key == _building).Subscribe(UpdateSellButton).AddTo(_disposable);
 
             _buyButton.OnClickAsObservable().Subscribe(_ => _buildingsViewModel.BuyBuilding(_building)).AddTo(_disposable);
             _sellButton.OnClickAsObservable().Subscribe(_ => _buildingsViewModel.SellBuilding(_building)).AddTo(_disposable);
 
             SetCount(_buildingsViewModel.Buildings[building]);
             SetPrice(_buildingsViewModel.BuildingPrices[building]);
-            SetBuyButton(_buildingsViewModel.AwaibleBuildingsForBuying[building]);
-            SetSellButton(_buildingsViewModel.AwaibleBuildingsForSelling[building]);
+            SetBuyButton(_buildingsViewModel.AvailableBuildingsForBuying[building]);
+            SetSellButton(_buildingsViewModel.AvailableBuildingsForSelling[building]);
         }
     }
 

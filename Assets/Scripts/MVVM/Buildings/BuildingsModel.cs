@@ -26,10 +26,7 @@ public class BuildingsModel
 
         BuildingPrices = new ReactiveDictionary<Building, BigInteger>();
 
-        foreach (var building in _resourceLoader.GetProgressData().PurchasedBuildings)
-        {
-            Buildings.Add(building.Key, building.Value);
-        }
+        _resourceLoader.GameProgress.Subscribe(SetData).AddTo(_disposable);
     }
 
     private void OnAddBuilding(DictionaryAddEvent<Building, int> building)
@@ -47,6 +44,14 @@ public class BuildingsModel
         if (keyValuePair.NewValue < 0)
         {
             Buildings[keyValuePair.Key] = 0;
+        }
+    }
+
+    private void SetData(GameProgress gameProgress)
+    {
+        foreach (var building in gameProgress.PurchasedBuildings)
+        {
+            Buildings.Add(building.Key, building.Value);
         }
     }
 }

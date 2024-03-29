@@ -17,7 +17,7 @@ public class CookiesModel
         _gameProgressLoader = gameProgressLoader;
         Cookies = new ReactiveProperty<BigInteger>();
         Cookies.Subscribe(ValidateCookies).AddTo(_disposable);
-        Cookies.Value = _gameProgressLoader.GetProgressData().Cookies;
+       _gameProgressLoader.GameProgress.Subscribe(SetData).AddTo(_disposable);
         
     }
 
@@ -27,5 +27,10 @@ public class CookiesModel
         {
             Cookies.Value = 0;
         }
-    }  
+    }
+
+    private void SetData(GameProgress gameProgress)
+    {
+        Cookies.Value = gameProgress.Cookies;
+    }
 }
