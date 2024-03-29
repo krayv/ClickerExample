@@ -7,7 +7,7 @@ using UniRx;
 [CreateAssetMenu(fileName = nameof(HaveCookieAchievement), menuName = "ScriptableObjects/" + nameof(HaveCookieAchievement))]
 public class HaveCookieAchievement : Achievement
 {
-    public int CookieRequierment;
+    public int CookieRequirement;
 
     private CookiesModel _cookiesViewModel;
     private readonly CompositeDisposable _disposable = new();
@@ -16,17 +16,13 @@ public class HaveCookieAchievement : Achievement
     private void Construct(CookiesModel cookiesViewModel, AchievementsModel achievementsModel)
     {
         _cookiesViewModel = cookiesViewModel;
-        _achievementsModel = achievementsModel;      
-    }
-
-    public override void StartObserve()
-    {
+        _achievementsModel = achievementsModel;
         _cookiesViewModel.Cookies.Subscribe(OnCookiesValueChanged).AddTo(_disposable);
     }
 
     private void OnCookiesValueChanged(BigInteger value)
     {
-        if (!IsAchievementReceived() && value >= CookieRequierment)
+        if (!IsAchievementReceived() && value >= CookieRequirement)
         {
             _achievementsModel.Achievements[this] = true;
         }

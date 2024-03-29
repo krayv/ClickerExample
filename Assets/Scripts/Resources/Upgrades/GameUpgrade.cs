@@ -6,7 +6,7 @@ using UniRx;
 
 public abstract class GameUpgrade : BuyableItem
 {
-    public Achievement RequiereAchievement;
+    public Achievement RequieredAchievement;
 
 
     private AchievementsModel _achievementsModel;
@@ -19,7 +19,7 @@ public abstract class GameUpgrade : BuyableItem
         _achievementsModel = achievementsModel;
         _upgradesModel = upgradesModel;
 
-        _achievementsModel.Achievements.ObserveReplace().Where(_ => _.Key == RequiereAchievement).Subscribe(OnUpdateAchieve).AddTo(_disposable);
+        _achievementsModel.Achievements.ObserveReplace().Where(_ => _.Key == RequieredAchievement).Subscribe(OnUpdateAchieve).AddTo(_disposable);
     }
 
     private void OnUpdateAchieve(DictionaryReplaceEvent<Achievement, bool> replaceEvent)

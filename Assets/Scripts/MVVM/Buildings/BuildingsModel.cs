@@ -12,10 +12,10 @@ public class BuildingsModel
 
     private readonly CompositeDisposable _disposable = new();
 
-    private IResourceLoader _resourceLoader;
+    private IGameProgressLoader _resourceLoader;
 
     [Inject]
-    private void Construct(IResourceLoader loader)
+    private void Construct(IGameProgressLoader loader)
     {
 
         _resourceLoader = loader;
@@ -26,7 +26,7 @@ public class BuildingsModel
 
         BuildingPrices = new ReactiveDictionary<Building, BigInteger>();
 
-        foreach (var building in _resourceLoader.LoadProgressBuildings())
+        foreach (var building in _resourceLoader.GetProgressData().PurchasedBuildings)
         {
             Buildings.Add(building.Key, building.Value);
         }

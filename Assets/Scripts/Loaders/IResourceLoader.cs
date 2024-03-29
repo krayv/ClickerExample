@@ -2,11 +2,9 @@ using System.Collections.Generic;
 
 public interface IResourceLoader
 {
-    public Dictionary<Building, int> LoadProgressBuildings();
+    public List<TItem> LoadItems<TItem>() where TItem : Item;
 
-    public Dictionary<Achievement, bool> LoadProgressAchievements();
-
-    public Dictionary<GameUpgrade, bool> LoadProgressUpgrades();
+    public List<Item> LoadAllItems();
 
     public TUIItem LoadUIItem<TUIItem>() where TUIItem : UIItem;
 }

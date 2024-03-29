@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 1 Click
   Description: Buy a mouse
-  ID: 0
+  ID: 1
   Order: 100
   Building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}
   CountRequire: 1

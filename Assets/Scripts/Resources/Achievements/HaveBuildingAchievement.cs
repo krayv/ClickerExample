@@ -17,10 +17,6 @@ public class HaveBuildingAchievement : Achievement
     private void Construct(BuildingsModel buildingsModel)
     {
         _buildingsModel = buildingsModel;
-    }
-
-    public override void StartObserve()
-    {
         _buildingsModel.Buildings.ObserveReplace().Where(_ => _.Key == Building).Subscribe(OnBuildingCountChanged).AddTo(_disposable);
     }
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: You should stop
   Description: Have a 10000 Cookies in bank
-  ID: 0
+  ID: 6
   Order: 40
-  CookieRequierment: 10000
+  CookieRequirement: 10000

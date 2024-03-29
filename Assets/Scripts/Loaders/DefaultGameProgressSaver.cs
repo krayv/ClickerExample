@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Zenject;
+using Newtonsoft.Json;
+using System.IO;
+using System.Linq;
 
 public class DefaultGameProgressSaver : IGameProgressSaver
 {
@@ -20,6 +23,9 @@ public class DefaultGameProgressSaver : IGameProgressSaver
 
     public void SaveGame()
     {
-        throw new System.NotImplementedException();
+        GameProgressJSONDataFormat data = new GameProgressJSONDataFormat(_buildingsModel.Buildings, _upgradesModel.Upgrades, _achievementsModel.Achievements, _cookiesModel.Cookies.Value);
+        string serializedData = JsonConvert.SerializeObject(data);
+        File.WriteAllText(Application.dataPath + "saveFile.json", serializedData);
+        Debug.Log("Game Saved: " + serializedData);
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IGameProgressLoader
 {
-    public GameProgress LoadGame();
+    public GameProgress GetProgressData();
 }

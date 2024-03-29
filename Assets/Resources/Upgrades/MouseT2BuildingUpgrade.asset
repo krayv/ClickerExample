@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mouse 2
   Description: Doubles the production
-  ID: 0
+  ID: 10001
   Order: 20
   BasePrice: 100
-  RequiereAchievement: {fileID: 11400000, guid: 0bfdde9d46a564841b263d5e38839476, type: 2}
+  RequieredAchievement: {fileID: 0}
   _baseProductionMultiplier: 2
   _building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}

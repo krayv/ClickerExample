@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 20 Cookies
   Description: Have a 150 Cookies in bank
-  ID: 0
+  ID: 4
   Order: 20
-  CookieRequierment: 150
+  CookieRequirement: 150

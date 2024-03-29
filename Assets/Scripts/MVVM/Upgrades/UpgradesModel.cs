@@ -6,20 +6,20 @@ public class UpgradesModel
     public ReactiveDictionary<GameUpgrade, bool> Upgrades { get; private set; }
     public ReactiveCollection<GameUpgrade> AchievedUpgrades { get; private set; }
 
-    private IResourceLoader _loader;
+    private IGameProgressLoader _loader;
     private AchievementsModel _achievementsModel;
 
     [Inject]
-    private void Construct(IResourceLoader loader, AchievementsModel achievementsModel)
+    private void Construct(IGameProgressLoader loader, AchievementsModel achievementsModel)
     {
         _loader = loader;
         _achievementsModel = achievementsModel;
         AchievedUpgrades = new ReactiveCollection<GameUpgrade>();
 
-        Upgrades = loader.LoadProgressUpgrades().ToReactiveDictionary();
+        Upgrades = loader.GetProgressData().PurchasedUpgrades.ToReactiveDictionary();
         foreach (var upgrade in Upgrades)
         {
-            if (upgrade.Key.RequiereAchievement == null || _achievementsModel.Achievements[upgrade.Key.RequiereAchievement])
+            if (upgrade.Key.RequieredAchievement == null || _achievementsModel.Achievements[upgrade.Key.RequieredAchievement])
             {
                 AchievedUpgrades.Add(upgrade.Key);
             }

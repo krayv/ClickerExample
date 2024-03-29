@@ -19,22 +19,20 @@ public class Building : BuyableItem
         _buildingsModel = buildingsModel;
         _upgradesModel = upgrades;
     }
-
-    
-
-    public BigInteger GetSummoryProduction()
+   
+    public BigInteger GetSummaryProduction()
     {
-        BigInteger summoryProduction = _buildingsModel.Buildings[this] * BaseProduction;
+        BigInteger summaryProduction = _buildingsModel.Buildings[this] * BaseProduction;
         List<BuildingUpgrade> buildingUpgrades = _upgradesModel.Upgrades.Where(u => u.Value && u.Key is BuildingUpgrade).Select(u=>u.Key as BuildingUpgrade).ToList();
         if (!buildingUpgrades.Any())
         {
-            return summoryProduction;
+            return summaryProduction;
         }
 
         foreach (BuildingUpgrade buildingUpgrade in buildingUpgrades)
         {
-            summoryProduction = buildingUpgrade.CalculateProduction(summoryProduction);
+            summaryProduction = buildingUpgrade.CalculateProduction(summaryProduction);
         }
-        return summoryProduction;
+        return summaryProduction;
     }
 }

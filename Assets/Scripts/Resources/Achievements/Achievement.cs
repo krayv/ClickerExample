@@ -10,8 +10,6 @@ public abstract class Achievement : Item
         _achievementsModel = achievementsModel;
     }
 
-    public abstract void StartObserve();
-
     protected bool IsAchievementReceived()
     {
         return _achievementsModel.Achievements[this];

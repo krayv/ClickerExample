@@ -26,13 +26,13 @@ public class CookieProductionModel
         _upgradesModel.Upgrades.ObserveReplace().Where(_ => _.NewValue == true).Subscribe(_ => RecalculateCookieProduction()).AddTo(_disposable);
     }
 
-    private void RecalculateCookieProduction()
+    public void RecalculateCookieProduction()
     {
         BigInteger value;
 
         foreach (var building in _buildingsModel.Buildings)
         {
-            value += building.Key.GetSummoryProduction();
+            value += building.Key.GetSummaryProduction();
         }
         CookiesPerSecond.Value = value;
     }

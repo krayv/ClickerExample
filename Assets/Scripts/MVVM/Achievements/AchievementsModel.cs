@@ -8,16 +8,12 @@ public class AchievementsModel
 {
     public ReactiveDictionary<Achievement, bool> Achievements { get; private set; }
 
-    private IResourceLoader _loader;
+    private IGameProgressLoader _loader;
 
     [Inject]
-    private void Construct(IResourceLoader loader)
+    private void Construct(IGameProgressLoader loader)
     {
         _loader = loader;
-        Achievements = loader.LoadProgressAchievements().ToReactiveDictionary();
-        foreach (var achievement in Achievements)
-        {
-            achievement.Key.StartObserve();
-        }
+        Achievements = loader.GetProgressData().AchievedAchievements.ToReactiveDictionary();
     }
 }

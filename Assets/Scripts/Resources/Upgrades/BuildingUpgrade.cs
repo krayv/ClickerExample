@@ -10,7 +10,7 @@ public class BuildingUpgrade : GameUpgrade
     [SerializeField] private Building _building;
 
     public override BigInteger CalculateProduction(BigInteger currentProduction)
-    {       
-        return (BigInteger)((double)currentProduction * _baseProductionMultiplier);
+    {
+        return (BigInteger)((double)currentProduction * _baseProductionMultiplier);       
     }
 }
