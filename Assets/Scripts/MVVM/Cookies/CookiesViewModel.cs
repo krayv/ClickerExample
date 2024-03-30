@@ -7,6 +7,8 @@ public class CookiesViewModel
 {
     public ReactiveProperty<BigInteger> Cookies => _cookiesModel.Cookies;
     public ReactiveProperty<BigInteger> CookiesPerSecond => _cookieProductionModel.CookiesPerSecond;
+    public Action<BigInteger> OnClickCookie;
+    public Action<BigInteger> OnProduceCookie;
 
     private readonly CompositeDisposable _disposable = new();
     private CookiesModel _cookiesModel;
@@ -33,6 +35,7 @@ public class CookiesViewModel
             value = cookieUpgrade.Key.CalculateProduction(value);
         }
         _cookiesModel.Cookies.Value += value;
+        OnClickCookie.Invoke(value);
     }
 
     public void SwitchBuildingsView()
@@ -50,10 +53,16 @@ public class CookiesViewModel
         _uiController.SwitchView<UpgradesView>();
     }
 
+    public void SwitchInfoView()
+    {
+        _uiController.SwitchView<GameStatisticInfoView>();
+    }
+
     public void ProduceCookies(float timeFactor)
     {
         double income = (double)CookiesPerSecond.Value * timeFactor + _previousCookiesLeft;
         _previousCookiesLeft = income % 1d;
-        _cookiesModel.Cookies.Value += (BigInteger)(income);
+        _cookiesModel.Cookies.Value += (BigInteger)income;
+        OnProduceCookie.Invoke((BigInteger)income);
     }
 }

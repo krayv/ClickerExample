@@ -34,6 +34,8 @@ public class DefaultGameProgressLoader : IGameProgressLoader
             var data = new GameProgressJSONDataFormat()
             {
                 CookiesInBank = 0,
+                CookiesClicked = 0,
+                CookiesProduced = 0,
                 AchievedAchieves = new System.Collections.Generic.Dictionary<int, bool>(),
                 PurchasedBuildings = new System.Collections.Generic.Dictionary<int, int>(),
                 PurchasedUpgrades = new System.Collections.Generic.Dictionary<int, bool>()

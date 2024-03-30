@@ -7,6 +7,8 @@ public struct GameProgress
     public Dictionary<Achievement, bool> AchievedAchievements;
     public Dictionary<GameUpgrade, bool> PurchasedUpgrades;
     public BigInteger Cookies;
+    public BigInteger CookiesProduced;
+    public BigInteger CookiesClicked;
     
     public GameProgress(GameProgressJSONDataFormat data, IResourceLoader resourceLoader)
     {
@@ -33,5 +35,7 @@ public struct GameProgress
         }
 
         Cookies = data.CookiesInBank;
+        CookiesProduced = data.CookiesProduced;
+        CookiesClicked = data.CookiesClicked;
     }
 }

@@ -21,6 +21,7 @@ public class CookiesView : View
     [SerializeField] private Button _openUpgradesButton;
     [SerializeField] private Button _saveButton;
     [SerializeField] private Button _resetButton;
+    [SerializeField] private Button _infoButton;
 
     private readonly CompositeDisposable _disposable = new();
 
@@ -38,6 +39,7 @@ public class CookiesView : View
         _cookiesViewModel.CookiesPerSecond.Subscribe(UpdateCpS).AddTo(_disposable);
         _saveButton.OnClickAsObservable().Subscribe(_ => _gameProgressSaver.SaveGame());
         _resetButton.OnClickAsObservable().Subscribe(_ => _gameProgressSaver.ResetGameProgress());
+        _infoButton.OnClickAsObservable().Subscribe(_ => _cookiesViewModel.SwitchInfoView());
     }
 
     private void Update()
