@@ -23,7 +23,7 @@ public class ReachCookieProductionAchievement : Achievement
 
     private void OnCookieProductionChanged(BigInteger value)
     {
-        if (value >= _cookieProductionRequirement)
+        if (!IsAchievementReceived() && value >= _cookieProductionRequirement)
         {
             _achievementsModel.Achievements[this] = true;
         }

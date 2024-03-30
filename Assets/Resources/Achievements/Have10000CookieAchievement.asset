@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da6727d53c3c8b478173893e176f632, type: 3}
   m_Name: Have10000CookieAchievement
   m_EditorClassIdentifier: 
-  Name: You should stop
+  Name: 10000 Cookies
   Description: Have a 10000 Cookies in bank
   ID: 6
   Order: 40
+  Icon: {fileID: 21300000, guid: 5cfa9a2759576af47b44b355d52dfbf8, type: 3}
   CookieRequirement: 10000

@@ -16,4 +16,5 @@ MonoBehaviour:
   Description: Bake 10 cookies per second
   ID: 8
   Order: 210
+  Icon: {fileID: 21300000, guid: 5cfa9a2759576af47b44b355d52dfbf8, type: 3}
   _cookieProductionRequirement: 10
