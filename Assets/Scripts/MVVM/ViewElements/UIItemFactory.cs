@@ -65,5 +65,6 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
     {
         TUIItem uiItem = _instantiatedItems.FirstOrDefault(i => i.Item == item);
         _instantiatedItems.Remove(uiItem);
+        uiItem.DestroySelf();
     }
 }

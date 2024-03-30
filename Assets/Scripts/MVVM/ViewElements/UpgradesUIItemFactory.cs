@@ -33,6 +33,6 @@ public class UpgradesUIItemFactory : UIItemFactory<GameUpgrade, UpgradeUIItem>
 
     private void OnRemoveItem(CollectionRemoveEvent<GameUpgrade> upgrade)
     {
-        RemoveItem(upgrade.Value);
+        DestroyItem(upgrade.Value);
     }
 }
