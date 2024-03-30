@@ -8,7 +8,7 @@ public class Tooltip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI mainText;
     [SerializeField] private TextMeshProUGUI nameText;
-
+    [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private RectTransform _rectTransform;
 
     public Item CurrentItem { get; private set; }
@@ -24,6 +24,12 @@ public class Tooltip : MonoBehaviour
         mainText.text = item.Description;
         nameText.text = item.Name;
 
+        if (item is BuyableItem buyableItem)
+        {
+            priceText.gameObject.SetActive(true);
+            priceText.text = buyableItem.BasePrice.ToString();
+        }
+
         _rectTransform.SetAsLastSibling();
         _rectTransform.position = itemRectTransform.position + (Vector3)offset;
         CurrentItem = item;
@@ -32,6 +38,7 @@ public class Tooltip : MonoBehaviour
     public void HideTooltip()
     {
         gameObject.SetActive(false);
+        priceText.gameObject.SetActive(false);
         CurrentItem = null;
     }
 }
