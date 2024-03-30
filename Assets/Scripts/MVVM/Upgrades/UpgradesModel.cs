@@ -1,3 +1,4 @@
+using TMPro;
 using UniRx;
 using Zenject;
 
@@ -16,13 +17,18 @@ public class UpgradesModel
         _loader = loader;
         _achievementsModel = achievementsModel;
         AchievedUpgrades = new ReactiveCollection<GameUpgrade>();
-
+        Upgrades = new ReactiveDictionary<GameUpgrade, bool>();
         loader.GameProgress.Subscribe(SetData).AddTo(_disposable);       
     }
 
+
     private void SetData(GameProgress gameProgress)
-    {
-        Upgrades = gameProgress.PurchasedUpgrades.ToReactiveDictionary();
+    {       
+        foreach (var upgrade in gameProgress.PurchasedUpgrades)
+        {
+            Upgrades[upgrade.Key] = upgrade.Value;
+        }
+
         foreach (var upgrade in Upgrades)
         {
             if (upgrade.Key.RequieredAchievement == null || _achievementsModel.Achievements[upgrade.Key.RequieredAchievement])

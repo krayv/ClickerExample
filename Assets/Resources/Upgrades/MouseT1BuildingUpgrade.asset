@@ -17,6 +17,6 @@ MonoBehaviour:
   ID: 10000
   Order: 10
   BasePrice: 20
-  RequieredAchievement: {fileID: 0}
+  RequieredAchievement: {fileID: 11400000, guid: 13fb3e6339ce7ea4e90ae80d94cb522f, type: 2}
   _baseProductionMultiplier: 2
   _building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}

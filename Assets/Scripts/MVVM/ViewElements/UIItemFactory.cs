@@ -11,6 +11,7 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
     protected Transform _container;
     protected TUIItem _itemPrefab;
     protected List<TUIItem> _instantiatedItems = new List<TUIItem>();
+    protected List<TUIItem> _removedItems = new List<TUIItem>();
 
     [Inject]
     protected void Construct(IResourceLoader resourceLoader)
@@ -36,10 +37,33 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
         {
             return;
         }
+        var removedItem = _removedItems.FirstOrDefault(i => i.Item == item);
+        if(removedItem != null)
+        {
+            removedItem.Activate();
+            _removedItems.Remove(removedItem);
+            _instantiatedItems.Add(removedItem);
+            return;
+        }
+
         TUIItem uiItem = GameObject.Instantiate(_itemPrefab, _container);
         diContainer.Inject(uiItem);
         uiItem.SetupUIItem(item);
         _instantiatedItems.Add(uiItem);
         ReorderElements();
+    }
+
+    protected void RemoveItem(TItem item)
+    {
+        TUIItem uiItem = _instantiatedItems.FirstOrDefault(i => i.Item == item);
+        _removedItems.Add(uiItem);
+        _instantiatedItems.Remove(uiItem);
+        uiItem.Deactivate();
+    }
+
+    protected void DestroyItem(TItem item)
+    {
+        TUIItem uiItem = _instantiatedItems.FirstOrDefault(i => i.Item == item);
+        _instantiatedItems.Remove(uiItem);
     }
 }

@@ -28,6 +28,10 @@ public abstract class GameUpgrade : BuyableItem
         {
             _upgradesModel.AchievedUpgrades.Add(this);
         }
+        else
+        {
+            _upgradesModel.AchievedUpgrades.Remove(this);
+        }
     }
 
     public abstract BigInteger CalculateProduction(BigInteger currentProduction);

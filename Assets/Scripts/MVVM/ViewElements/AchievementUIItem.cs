@@ -12,8 +12,6 @@ public class AchievementUIItem : UIItem
 
     private Achievement _achievement;
 
-    private readonly CompositeDisposable _disposable = new();
-
     public override Item Item => _achievement;
 
     [Inject]
@@ -32,9 +30,9 @@ public class AchievementUIItem : UIItem
         }
     }
 
-    private void OnGetAchievement(DictionaryReplaceEvent<Achievement, bool> newAchiviement)
+    private void OnGetAchievement(DictionaryReplaceEvent<Achievement, bool> newAchievement)
     {
-        SetImageByAchievedStatus(newAchiviement.NewValue);
+        SetImageByAchievedStatus(newAchievement.NewValue);
     }
 
     private void SetImageByAchievedStatus(bool achieved)

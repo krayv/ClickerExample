@@ -19,7 +19,7 @@ public class BuildingUIItem : UIItem
     [SerializeField] private Image _sellInactive;
 
     private Building _building;
-    private readonly CompositeDisposable _disposable = new();
+    
     private BigInteger _currentPrice;
 
     public override Item Item => _building;

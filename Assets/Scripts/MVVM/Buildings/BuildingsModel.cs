@@ -51,7 +51,7 @@ public class BuildingsModel
     {
         foreach (var building in gameProgress.PurchasedBuildings)
         {
-            Buildings.Add(building.Key, building.Value);
+            Buildings[building.Key] = building.Value;
         }
     }
 }

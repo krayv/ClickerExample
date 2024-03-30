@@ -13,7 +13,6 @@ public class UpgradeUIItem : UIItem
 
     private UpgradesViewModel _upgradeViewModel;
     private CookiesViewModel _cookiesViewModel;
-    private readonly CompositeDisposable _disposable = new();
 
     [SerializeField] private Button _iconButton;
     [SerializeField] private Image _purchasedIcon;

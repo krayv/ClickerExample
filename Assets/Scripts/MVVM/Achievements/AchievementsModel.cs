@@ -16,11 +16,15 @@ public class AchievementsModel
     private void Construct(IGameProgressLoader loader)
     {
         _loader = loader;
+        Achievements = new ReactiveDictionary<Achievement, bool>();
         loader.GameProgress.Subscribe(SetData).AddTo(_disposable);
     }
 
     private void SetData(GameProgress gameProgress)
-    {
-        Achievements = gameProgress.AchievedAchievements.ToReactiveDictionary();
+    {       
+        foreach (var achievement in gameProgress.AchievedAchievements)
+        {
+            Achievements[achievement.Key] = achievement.Value;
+        }
     }
 }

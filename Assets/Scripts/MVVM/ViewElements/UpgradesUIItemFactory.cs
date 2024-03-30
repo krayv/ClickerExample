@@ -23,10 +23,16 @@ public class UpgradesUIItemFactory : UIItemFactory<GameUpgrade, UpgradeUIItem>
             InstantiateItem(upgrade);
         }
         _upgradesViewModel.AchievedUpgrades.ObserveAdd().Subscribe(OnAddItem).AddTo(_disposable);
+        _upgradesViewModel.AchievedUpgrades.ObserveRemove().Subscribe(OnRemoveItem).AddTo(_disposable);
     }
 
     private void OnAddItem(CollectionAddEvent<GameUpgrade> upgrade)
     {
         InstantiateItem(upgrade.Value);
+    }
+
+    private void OnRemoveItem(CollectionRemoveEvent<GameUpgrade> upgrade)
+    {
+        RemoveItem(upgrade.Value);
     }
 }
