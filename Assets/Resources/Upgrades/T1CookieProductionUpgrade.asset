@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Cookie 1
   Description: Increase cookie production by 5%
   ID: 10002
-  Order: 100
+  Order: 0
   BasePrice: 100
   RequieredAchievement: {fileID: 11400000, guid: 3563c8eb176b08e4b92fd3ff4bbee243, type: 2}
   _productionMultiplier: 1.1

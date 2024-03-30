@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f1630f2f93d3c4885d799de2613d71, type: 3}
-  m_Name: MouseT1BuildingUpgrade
+  m_Script: {fileID: 11500000, guid: a454515f25819434e998d165d8192dde, type: 3}
+  m_Name: T1ClickUpgrade
   m_EditorClassIdentifier: 
-  Name: Mouse 1
-  Description: Doubles the production
-  ID: 10000
-  Order: 10
-  BasePrice: 20
+  Name: Click Upgrade
+  Description: Doubles click production
+  ID: 10003
+  Order: 0
+  BasePrice: 50
   RequieredAchievement: {fileID: 11400000, guid: 13fb3e6339ce7ea4e90ae80d94cb522f, type: 2}
-  _baseProductionMultiplier: 2
-  _building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}
+  _clickProductionMultiplier: 2

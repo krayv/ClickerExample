@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00f1630f2f93d3c4885d799de2613d71, type: 3}
-  m_Name: MouseT2BuildingUpgrade
+  m_Name: T2MouseBuildingUpgrade
   m_EditorClassIdentifier: 
   Name: Mouse 2
-  Description: Doubles the production
+  Description: Doubles the mouse production
   ID: 10001
-  Order: 20
+  Order: 10
   BasePrice: 100
   RequieredAchievement: {fileID: 11400000, guid: 0bfdde9d46a564841b263d5e38839476, type: 2}
   _baseProductionMultiplier: 2
