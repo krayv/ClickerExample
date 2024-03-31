@@ -32,7 +32,7 @@ public abstract class UIItem : MonoBehaviour
     public void Awake()
     {
         var mouseOver = Observable.EveryFixedUpdate().AsObservable()
-            .Where(_ => _tooltip.CurrentItem != Item && RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition))
+            .Where(_ => _tooltip.CurrentItem != Item && gameObject.activeInHierarchy && RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition))
             .Subscribe(xs => _tooltip.ShowTooltip(Item, mainRectTransform, tooltipOffset)).AddTo(_disposable);
         var mouseExit = Observable.EveryFixedUpdate().AsObservable()
             .Where(_ => _tooltip.CurrentItem == Item && !RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition))
