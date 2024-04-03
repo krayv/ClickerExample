@@ -39,6 +39,7 @@ public class AchievementUIItem : UIItem
     private void SetImageByAchievedStatus(bool achieved)
     {
         icon.gameObject.SetActive(achieved);
-        inactiveIcon.gameObject.SetActive(!achieved);      
+        inactiveIcon.gameObject.SetActive(!achieved);
+        _showTooltip = achieved;
     }
 }

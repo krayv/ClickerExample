@@ -16,6 +16,8 @@ public abstract class UIItem : MonoBehaviour
     private Tooltip _tooltip;
     protected readonly CompositeDisposable _disposable = new();
 
+    protected bool _showTooltip = true;
+    
     public abstract Item Item 
     { 
         get; 
@@ -32,10 +34,15 @@ public abstract class UIItem : MonoBehaviour
     public void Awake()
     {
         var mouseOver = Observable.EveryFixedUpdate().AsObservable()
-            .Where(_ => _tooltip.CurrentItem != Item && gameObject.activeInHierarchy && RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition))
+            .Where(_ => _tooltip.CurrentItem != Item 
+            && gameObject.activeInHierarchy 
+            && RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition)
+            && _showTooltip)
             .Subscribe(xs => _tooltip.ShowTooltip(Item, mainRectTransform, tooltipOffset)).AddTo(_disposable);
         var mouseExit = Observable.EveryFixedUpdate().AsObservable()
-            .Where(_ => _tooltip.CurrentItem == Item && !RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition))
+            .Where(_ => _tooltip.CurrentItem == Item 
+            && !RectTransformUtility.RectangleContainsScreenPoint(mainRectTransform, Input.mousePosition)
+            && _showTooltip)
             .Subscribe(xs => _tooltip.HideTooltip()).AddTo(_disposable);
     }
 
