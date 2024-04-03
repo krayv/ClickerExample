@@ -54,6 +54,6 @@ public class CookiesView : View
 
     private void UpdateCpS(BigInteger value)
     {
-        _cpsText.text = "CpS:<indent=50%>" + value; 
+        _cpsText.text = value.ToString(); 
     }
 }
