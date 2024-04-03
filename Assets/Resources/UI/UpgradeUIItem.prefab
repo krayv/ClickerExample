@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efa849345ff1ed439dd339e64640d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 5129717649327739871}
+  icon: {fileID: 2708607160501131737}
   inactiveForeground: {fileID: 1643946237444347631}
   mainRectTransform: {fileID: 1642638209007398325}
   tooltipOffset: {x: 0, y: 50}

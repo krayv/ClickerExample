@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7990064099920674525}
+  inactiveForeground: {fileID: 0}
   mainRectTransform: {fileID: 1642638209007398325}
   tooltipOffset: {x: 0, y: 0}
   inactiveIcon: {fileID: 3911199343066753238}

@@ -16,6 +16,7 @@ MonoBehaviour:
   Description: Doubles the mouse production
   ID: 10000
   Order: 0
+  Icon: {fileID: 21300000, guid: 94d83eac926c5504fbf337e095852dc0, type: 3}
   BasePrice: 20
   RequieredAchievement: {fileID: 11400000, guid: 13fb3e6339ce7ea4e90ae80d94cb522f, type: 2}
   _baseProductionMultiplier: 2

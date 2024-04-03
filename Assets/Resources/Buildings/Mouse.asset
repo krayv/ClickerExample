@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: A mouse clicks every second and produce 1 cookie
   ID: 1000
   Order: 0
+  Icon: {fileID: 21300306, guid: 7a90fcdada22c9b429479d5933a03692, type: 3}
   BasePrice: 15
   BaseProduction: 1

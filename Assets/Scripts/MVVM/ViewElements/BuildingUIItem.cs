@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using UniRx;
 using System.Numerics;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BuildingUIItem : UIItem
 {
@@ -48,6 +49,8 @@ public class BuildingUIItem : UIItem
             SetPrice(_buildingsViewModel.BuildingPrices[building]);
             SetBuyButton(_buildingsViewModel.AvailableBuildingsForBuying[building]);
             SetSellButton(_buildingsViewModel.AvailableBuildingsForSelling[building]);
+
+            icon.sprite = building.Icon;
         }
     }
 

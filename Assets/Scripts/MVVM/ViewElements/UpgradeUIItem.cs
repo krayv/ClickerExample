@@ -4,6 +4,7 @@ using Zenject;
 using UnityEngine.UI;
 using UniRx;
 using System.Numerics;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UpgradeUIItem : UIItem
 {
@@ -36,6 +37,7 @@ public class UpgradeUIItem : UIItem
             {
                 SetIconAsPurchased();
             }
+            icon.sprite = item.Icon;
         }
     }
 

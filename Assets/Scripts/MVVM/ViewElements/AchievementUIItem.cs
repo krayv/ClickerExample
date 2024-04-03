@@ -26,7 +26,8 @@ public class AchievementUIItem : UIItem
         {
             _achievement = achievement;
             _achievementsViewModel.Achievements.ObserveReplace().Where(_ => _.Key == _achievement).Subscribe(OnGetAchievement).AddTo(_disposable);
-            SetImageByAchievedStatus(_achievementsViewModel.Achievements[achievement]);                      
+            SetImageByAchievedStatus(_achievementsViewModel.Achievements[achievement]);
+            icon.sprite = achievement.Icon;
         }
     }
 
