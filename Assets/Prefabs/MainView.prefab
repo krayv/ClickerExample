@@ -1697,13 +1697,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cookiesCountText: {fileID: 5471198297977813647}
   _cpsText: {fileID: 7893931268065850677}
-  _clickButton: {fileID: 6229836076317551812}
+  _cookieButton: {fileID: 6229836076317551812}
   _openBuildingsButton: {fileID: 1820673567685236559}
   _openAchievementsButton: {fileID: 272187581236140933}
   _openUpgradesButton: {fileID: 7866008042424596880}
   _saveButton: {fileID: 7102454320892109952}
   _resetButton: {fileID: 700020382640225488}
   _infoButton: {fileID: 8212015594197527476}
+  clickAnimationSettings:
+    TargetScale: 0.8
+    AnimationTime: 0.15
+    RevertAnimationTime: 0.1
 --- !u!1 &6276431811227814320
 GameObject:
   m_ObjectHideFlags: 0
