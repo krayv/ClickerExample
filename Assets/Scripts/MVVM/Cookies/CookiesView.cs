@@ -8,10 +8,14 @@ using Zenject;
 using System.Numerics;
 using DG.Tweening;
 using System;
+using UniRx.Toolkit;
+using UnityEngine.Pool;
+using UnityEngine.Rendering.VirtualTexturing;
+using static UnityEditor.Progress;
+using System.Text;
 
 public class CookiesView : View
 {
-
     private CookiesViewModel _cookiesViewModel;
     private IGameProgressSaver _gameProgressSaver;
 
@@ -30,6 +34,8 @@ public class CookiesView : View
     private readonly CompositeDisposable _disposable = new();
 
     private Sequence _clickSequence;
+
+    [SerializeField] private TextMeshProUGUI clickTextPrefab;
 
     [Inject]
     private void Construct(CookiesViewModel cookiesViewModel, IGameProgressSaver gameProgressSaver)

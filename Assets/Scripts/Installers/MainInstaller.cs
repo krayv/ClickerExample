@@ -5,7 +5,7 @@ public class MainInstaller : MonoInstaller
 {
     [SerializeField] private UIController _uiController;
     [SerializeField] private Tooltip _tooltip;
-
+    //[SerializeField] private ClickTextObjectPool _clickTextObjectPool;
     public override void InstallBindings()
     {
         Container.Bind<UIController>().FromInstance(_uiController).AsSingle().NonLazy();
@@ -35,5 +35,7 @@ public class MainInstaller : MonoInstaller
        
         Container.Bind<IInitializable>().To<SOItemInjector>().FromNew().AsSingle();
         Container.Bind<IInitializable>().To<GameInitializer>().FromNew().AsSingle();
+
+        //Container.Bind<ClickTextObjectPool>().FromInstance(_clickTextObjectPool).AsSingle();
     }
 }

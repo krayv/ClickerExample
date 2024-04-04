@@ -1414,6 +1414,57 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &3403801425538744196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3053021662117809665}
+  - component: {fileID: 6326734991802658319}
+  m_Layer: 5
+  m_Name: ButtonClickPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3053021662117809665
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403801425538744196}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8534917520143108720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6326734991802658319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403801425538744196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ffa38eb0e8954280385230f537258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickTextPrefab: {fileID: 3528851825008870764, guid: 4027c1177af7db44eb87788e2d7b452a, type: 3}
+  _textLifeTime: 2
+  _textYMovement: 350
 --- !u!1 &4458392169903996546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1675,7 @@ RectTransform:
   - {fileID: 6622423797202598012}
   - {fileID: 6911110610199555446}
   - {fileID: 1044264322178094256}
+  - {fileID: 3053021662117809665}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1695,6 +1747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c512c7055965124b92d9c356480ec72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectsForInject:
+  - {fileID: 6326734991802658319}
   _cookiesCountText: {fileID: 5471198297977813647}
   _cpsText: {fileID: 7893931268065850677}
   _cookieButton: {fileID: 6229836076317551812}
@@ -1708,6 +1762,7 @@ MonoBehaviour:
     TargetScale: 0.8
     AnimationTime: 0.15
     RevertAnimationTime: 0.1
+  clickTextPrefab: {fileID: 3528851825008870764, guid: 4027c1177af7db44eb87788e2d7b452a, type: 3}
 --- !u!1 &6276431811227814320
 GameObject:
   m_ObjectHideFlags: 0

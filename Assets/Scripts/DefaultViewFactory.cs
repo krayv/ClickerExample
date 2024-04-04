@@ -8,6 +8,10 @@ public class DefaultViewFactory : Factory, IViewFactory
     {
         view = GameObject.Instantiate<View>(view, origin);
         diContainer.Inject(view);
+        foreach (var unityObject in view.ObjectsForInject)
+        {
+            diContainer.Inject(unityObject);
+        }
         return view;
     }
 }
