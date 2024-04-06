@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 [CreateAssetMenu(fileName = nameof(Building), menuName = "ScriptableObjects/" + nameof(Building))]
-public class Building : BuyableItem
+public class Building : PurchasableItem
 {
     public long BaseProduction;
 

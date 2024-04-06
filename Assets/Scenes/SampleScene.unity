@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 885062478}
   - component: {fileID: 885062480}
   - component: {fileID: 885062479}
+  - component: {fileID: 885062481}
   m_Layer: 0
   m_Name: CookieStream
   m_TagString: Untagged
@@ -5450,6 +5451,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &885062481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885062477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b696c1c92c6f04889601d24c4c4bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 885062480}
+  _maxEmissionRate: 1000
 --- !u!1 &1252499792
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System.Linq;
+using System;
+using System.Numerics;
 
 public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory where TItem: Item where TUIItem: UIItem
 {
@@ -12,6 +14,8 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
     protected TUIItem _itemPrefab;
     protected List<TUIItem> _instantiatedItems = new List<TUIItem>();
     protected List<TUIItem> _removedItems = new List<TUIItem>();
+
+    protected Func<TUIItem, BigInteger> _orderSelector = i => i.Item.ID; 
 
     [Inject]
     protected void Construct(IResourceLoader resourceLoader)
@@ -24,7 +28,7 @@ public abstract class UIItemFactory<TItem, TUIItem> : Factory, IUIItemFactory wh
 
     protected void ReorderElements()
     {
-        var orderedItems = _instantiatedItems.OrderByDescending(i => i.Item.Order);
+        var orderedItems = _instantiatedItems.OrderByDescending(_orderSelector);
         foreach (var item in orderedItems)
         {
             item.gameObject.transform.SetAsFirstSibling();

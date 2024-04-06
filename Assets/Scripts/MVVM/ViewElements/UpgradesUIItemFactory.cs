@@ -13,6 +13,7 @@ public class UpgradesUIItemFactory : UIItemFactory<GameUpgrade, UpgradeUIItem>
     private void Construct(UpgradesViewModel upgradesViewModel)
     {
         _upgradesViewModel = upgradesViewModel;
+        _orderSelector = i => (i.Item as PurchasableItem).BasePrice;
     }
 
     public override void InstantiateItems(Transform container)

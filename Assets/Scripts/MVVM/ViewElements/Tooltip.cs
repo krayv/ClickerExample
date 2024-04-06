@@ -25,7 +25,7 @@ public class Tooltip : MonoBehaviour
         mainText.text = item.Description;
         nameText.text = item.Name;
 
-        if (item is BuyableItem buyableItem)
+        if (item is PurchasableItem buyableItem)
         {
             _priceRect.gameObject.SetActive(true);
             priceText.text = buyableItem.BasePrice.ToString();

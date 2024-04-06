@@ -8,7 +8,6 @@ public abstract class Item : ScriptableObject
     public string Name;
     public string Description;
     public int ID;
-    public int Order;
     public Sprite Icon;
 
     public static Dictionary<int, TValue> ConvertSOKeyDictionaryToIDKeyDictionary<TKey,TValue>(Dictionary<TKey, TValue> dictionary) where TKey : Item

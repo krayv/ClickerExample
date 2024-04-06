@@ -4,7 +4,7 @@ using System.Numerics;
 using Zenject;
 using UniRx;
 
-public abstract class GameUpgrade : BuyableItem
+public abstract class GameUpgrade : PurchasableItem
 {
     public Achievement RequieredAchievement;
 

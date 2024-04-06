@@ -214,7 +214,7 @@ MonoBehaviour:
   icon: {fileID: 2708607160501131737}
   inactiveForeground: {fileID: 1643946237444347631}
   mainRectTransform: {fileID: 1642638209007398325}
-  tooltipOffset: {x: 0, y: 50}
+  tooltipOffset: {x: -200, y: 0}
   _iconButton: {fileID: 5053751585872667424}
   _purchasedIcon: {fileID: 3911199343066753238}
 --- !u!1 &5190104807200190380
