@@ -2,7 +2,7 @@ using System.Numerics;
 using System;
 public static class GameConstantsAndFormulas 
 {
-    public const float INCREASE_PRICE_PER_BUILDING = 0.03f;
+    public const float INCREASE_PRICE_PER_BUILDING = 0.1f;
     public const float SELL_BUILDING_PRICE_MODIFIER = 0.75f;
 
     public static BigInteger CalculateBuildingPrice(int buildingCount, long basePrice)
@@ -12,8 +12,8 @@ public static class GameConstantsAndFormulas
             return basePrice;
         }
         BigInteger value;
-        double exp = 1 + (buildingCount * INCREASE_PRICE_PER_BUILDING);
-        value = (long)Math.Pow(basePrice, exp);
+        var pow = MathF.Pow(1f + INCREASE_PRICE_PER_BUILDING, buildingCount);
+        value = (BigInteger)(basePrice * pow);
         return value;
     }
 }
