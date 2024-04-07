@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UniRx;
 using System.Numerics;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SocialPlatforms;
 
 public class BuildingUIItem : UIItem
 {
@@ -51,6 +52,7 @@ public class BuildingUIItem : UIItem
             SetSellButton(_buildingsViewModel.AvailableBuildingsForSelling[building]);
 
             icon.sprite = building.Icon;
+            icon.color = building.IconColor;
         }
     }
 

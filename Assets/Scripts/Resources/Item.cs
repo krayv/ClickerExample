@@ -9,6 +9,7 @@ public abstract class Item : ScriptableObject
     public string Description;
     public int ID;
     public Sprite Icon;
+    public Color IconColor = Color.white;
 
     public static Dictionary<int, TValue> ConvertSOKeyDictionaryToIDKeyDictionary<TKey,TValue>(Dictionary<TKey, TValue> dictionary) where TKey : Item
     {
