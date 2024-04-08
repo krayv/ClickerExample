@@ -16,6 +16,6 @@ MonoBehaviour:
   Description: Have 50  cursors.
   ID: 160
   Icon: {fileID: 21300000, guid: bef071d9506ceeb4eafa327178f07376, type: 3}
-  IconColor: {r: 0, g: 0.039215688, b: 1, a: 1}
+  IconColor: {r: 0, g: 0.7254902, b: 0.9529412, a: 1}
   Building: {fileID: 11400000, guid: 1b225c5bbcbfc77458eae46145b60be2, type: 2}
   CountRequire: 50

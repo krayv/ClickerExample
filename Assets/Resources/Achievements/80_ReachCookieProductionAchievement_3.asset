@@ -16,5 +16,5 @@ MonoBehaviour:
   Description: Bake 100 cookie per second.
   ID: 80
   Icon: {fileID: 21300000, guid: a0508a41afc46e0419b9f3b38c7dd6ed, type: 3}
-  IconColor: {r: 0, g: 0.039215688, b: 1, a: 1}
+  IconColor: {r: 0, g: 0.7254902, b: 0.9529412, a: 1}
   _cookieProductionRequirement: 100

@@ -16,6 +16,6 @@ MonoBehaviour:
   Description: Have 50 kitchens.
   ID: 190
   Icon: {fileID: 21300000, guid: a38d071add7099f4ca393312f1e3fe9d, type: 3}
-  IconColor: {r: 0, g: 0.039215688, b: 1, a: 1}
+  IconColor: {r: 0, g: 0.7254902, b: 0.9529412, a: 1}
   Building: {fileID: 11400000, guid: 2614b5d7662d39940aaf0c6bffb137f9, type: 2}
   CountRequire: 50

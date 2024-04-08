@@ -16,6 +16,6 @@ MonoBehaviour:
   Description: Have 50 mine.
   ID: 250
   Icon: {fileID: 21300000, guid: 23711729fca8dee4f969a7d76bdf0c92, type: 3}
-  IconColor: {r: 0, g: 0.039215688, b: 1, a: 1}
+  IconColor: {r: 0, g: 0.7254902, b: 0.9529412, a: 1}
   Building: {fileID: 11400000, guid: 5e8e1f3596546564c9d913266d097e54, type: 2}
   CountRequire: 50
