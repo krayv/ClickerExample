@@ -38,6 +38,7 @@ public class UpgradeUIItem : UIItem
                 SetIconAsPurchased();
             }
             icon.sprite = item.Icon;
+            icon.color = item.IconColor;
         }
     }
 

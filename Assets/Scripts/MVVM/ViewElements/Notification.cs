@@ -30,6 +30,7 @@ public class Notification : MonoBehaviour
     private void OnNewAchieve(DictionaryReplaceEvent<Achievement, bool> replaceEvent)
     {
         _achieveIcon.sprite = replaceEvent.Key.Icon;
+        _achieveIcon.color = replaceEvent.Key.IconColor;
         _achieveNameText.text = replaceEvent.Key.Name;
         gameObject.SetActive(true);
     }
