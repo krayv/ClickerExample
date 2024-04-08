@@ -1,17 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UniRx;
 using TMPro;
 using Zenject;
 using System.Numerics;
 using DG.Tweening;
-using System;
-using UniRx.Toolkit;
 using UnityEngine.Pool;
-using UnityEngine.Rendering.VirtualTexturing;
-using static UnityEditor.Progress;
 using System.Text;
 
 public class ClickTextObjectPool : MonoBehaviour
