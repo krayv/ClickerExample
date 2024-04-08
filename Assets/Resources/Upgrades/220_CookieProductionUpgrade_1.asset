@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: Cookie production multiplier +25%.
   ID: 220
   Icon: {fileID: 21300000, guid: 07559cf152ef6d0458ab10397a66cd67, type: 3}
-  IconColor: {r: 1, g: 1, b: 1, a: 1}
+  IconColor: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 1}
   BasePrice: 1000
   RequieredAchievement: {fileID: 11400000, guid: 812f9c7b1394d564f840aa8646ec191b, type: 2}
   _productionMultiplier: 1.25

@@ -23,7 +23,7 @@ public class Building : PurchasableItem
     public BigInteger GetSummaryProduction()
     {
         BigInteger summaryProduction = _buildingsModel.Buildings[this] * BaseProduction;
-        List<BuildingUpgrade> buildingUpgrades = _upgradesModel.Upgrades.Where(u => u.Value && u.Key is BuildingUpgrade).Select(u=>u.Key as BuildingUpgrade).ToList();
+        List<BuildingUpgrade> buildingUpgrades = _upgradesModel.Upgrades.Where(u => u.Value && u.Key is BuildingUpgrade).Select(u=>u.Key as BuildingUpgrade).Where(bu=>bu.Building == this).ToList();
         if (!buildingUpgrades.Any())
         {
             return summaryProduction;

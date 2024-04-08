@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Mine
   Description: Produces 50 cookies per second
   ID: 30
-  Icon: {fileID: 21300000, guid: a676d892c45501f47a25391748479a8b, type: 3}
+  Icon: {fileID: 21300000, guid: 23711729fca8dee4f969a7d76bdf0c92, type: 3}
   IconColor: {r: 1, g: 1, b: 1, a: 1}
   BasePrice: 15000
   BaseProduction: 50

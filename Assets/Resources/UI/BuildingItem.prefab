@@ -351,7 +351,7 @@ MonoBehaviour:
   icon: {fileID: 4428280896550856348}
   inactiveForeground: {fileID: 1308934625990478574}
   mainRectTransform: {fileID: 4605634396142267153}
-  tooltipOffset: {x: 0, y: 0}
+  tooltipOffset: {x: -150, y: 0}
   _itemNameText: {fileID: 1220088652932462935}
   _itemCurrentPriceText: {fileID: 2757673438343926286}
   _itemCurrentCountText: {fileID: 8006549143813021186}

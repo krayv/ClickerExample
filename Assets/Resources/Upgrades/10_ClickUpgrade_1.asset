@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 10_ClickUpgrade_1
   m_EditorClassIdentifier: 
   Name: Reinforced click
-  Description: The clicks are 4th as efficient.
+  Description: The clicks are 600% more efficient.
   ID: 10
   Icon: {fileID: 21300000, guid: 1bd41c026d9c61d448713dc06e351779, type: 3}
   IconColor: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 1}
   BasePrice: 500
   RequieredAchievement: {fileID: 11400000, guid: 079d0f6e795b57a4e81153dee4a3b160, type: 2}
-  _clickProductionMultiplier: 4
+  _clickProductionMultiplier: 6

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Oatmeal raisin cookies
   Description: Cookie production multiplier +25%.
-  ID: 220
+  ID: 240
   Icon: {fileID: 21300000, guid: 07559cf152ef6d0458ab10397a66cd67, type: 3}
-  IconColor: {r: 1, g: 1, b: 1, a: 1}
+  IconColor: {r: 0, g: 0.7254902, b: 0.9529412, a: 1}
   BasePrice: 2500000
   RequieredAchievement: {fileID: 11400000, guid: d044736c9c3a31148893c190d6388255, type: 2}
   _productionMultiplier: 1.25

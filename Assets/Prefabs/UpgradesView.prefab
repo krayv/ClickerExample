@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57fd12764917fa469ca5101d5473044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectsForInject: []
   container: {fileID: 4155308812985956086}
   closeButton: {fileID: 4854563596395004408}
 --- !u!1 &1787363813747291278
@@ -798,7 +799,7 @@ MonoBehaviour:
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 6
 --- !u!114 &7597790834981415196
 MonoBehaviour:
   m_ObjectHideFlags: 0
