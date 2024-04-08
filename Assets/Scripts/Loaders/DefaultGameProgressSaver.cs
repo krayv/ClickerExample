@@ -31,13 +31,23 @@ public class DefaultGameProgressSaver : IGameProgressSaver
             _achievementsModel.Achievements, _cookiesModel.Cookies.Value, _gameStatisticModel.CookiesBaked.Value, _gameStatisticModel.CookiesClicked.Value);
 
         string serializedData = JsonConvert.SerializeObject(data);
-        File.WriteAllText(Application.dataPath + "saveFile.json", serializedData);
+#if UNITY_WEBGL
+        PlayerPrefs.SetString("Data", serializedData);
+        Debug.Log("Game Saved in PP: " + serializedData);
+#else
+        File.WriteAllText(Application.persistentDataPath + "saveFile.json", serializedData);
         Debug.Log("Game Saved: " + serializedData);
+#endif
+
     }
 
     public void ResetGameProgress()
     {
-        File.Delete(Application.dataPath + "saveFile.json");
+#if UNITY_WEBGL
+        PlayerPrefs.DeleteKey("Data");
+#else
+        File.Delete(Application.persistentDataPath + "saveFile.json");
+#endif       
         Debug.Log("The Game Save deleted!");
         _gameProgressLoader.LoadProgressData();
     }

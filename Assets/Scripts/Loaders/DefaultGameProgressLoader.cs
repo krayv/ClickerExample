@@ -25,9 +25,23 @@ public class DefaultGameProgressLoader : IGameProgressLoader
     {
         try
         {
-            string rawData = File.ReadAllText(Application.dataPath + "saveFile.json");
+            string rawData;
+#if UNITY_WEBGL
+            rawData = PlayerPrefs.GetString("Data");
+            if (string.IsNullOrEmpty(rawData))
+            {
+                Debug.Log("Start a new game");
+            }
+            else
+            {
+                Debug.Log("Game data loaded: " + rawData);
+            }
+#else
+            rawData = File.ReadAllText(Application.persistentDataPath + "saveFile.json");
+#endif
             GameProgressJSONDataFormat data = JsonConvert.DeserializeObject<GameProgressJSONDataFormat>(rawData);
             _gameProgress.Value = new GameProgress(data, _resourceLoader);
+            
         }
         catch
         {
